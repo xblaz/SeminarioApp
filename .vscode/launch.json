@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "seminario.Main",
+            "projectName": "SeminarioApp_227df0eb",
+            "vmArgs": "--module-path /home/cristian/Escritorio/Seminario_App/SeminarioApp/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
