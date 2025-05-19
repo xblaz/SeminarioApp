@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="521" version="1.1" viewBox="0 0 1013 521" width="1013">
+  <defs>
+    <linearGradient id="g1" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#cfcfcf"/>
+    </linearGradient>
+    <svg height="16.0" id="i1" width="16.0">
+      <image height="16.0" width="16.0" xlink:href="data:image/png;base64,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"/>
+    </svg>
+  </defs>
+  <style><![CDATA[
+	.linkable {pointer-events: all;} 
+	.linkable:hover {fill: blue;}
+  ]]></style>
+  <rect fill="none" height="118" id="_17" stroke="#000000" stroke-width="1.0" width="1010" x="1" y="1"/>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(270 18.0 59.0)" x="18" y="62">Cliente</text>
+  <g id="_20">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="366" y="21"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="408" y="46">Informar</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="408" y="57">Nuevos Datos</text>
+  <rect fill="none" height="200" id="_3" stroke="#000000" stroke-width="1.0" width="1010" x="1" y="319"/>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(270 18.0 419.0)" x="18" y="422">Sistema</text>
+  <g id="_6">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="142" y="379"/>
+    <use height="16.0" preserveAspectRatio="none" width="16.0" x="147.0" xlink:href="#i1" y="382.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="184" y="404">Buscar por</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="184" y="415">DNI</text>
+  <g id="_9">
+    <path d="M 296 377 L 317 398 L 296 419 L 275 398 Z" fill="url(#g1)" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="296" y="431">¿Encontrado?</text>
+  <g id="_10">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="370" y="373"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="412" y="398">Mostrar </text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="412" y="409">Formulario </text>
+  <g id="_11">
+    <path d="M 274.5222707095946 398.9777292904054 L 264.5222707095946 403.9777292904054 L 267.0222707095946 398.9777292904054 L 264.5222707095946 393.9777292904054 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 227.5 406.8323106254984 L 241.19872881376193 406.8323106254984 Q 251.19872881376193 406.8323106254984 251.19872881376193 402.90501995795194 L 251.19872881376193 400.9413746241787 Q 251.19872881376193 398.9777292904054 261.19872881376193 398.9777292904054 L 275.0222707095946 398.9777292904054" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_12">
+    <path d="M 369.5 400.62959250567764 L 359.5 405.62959250567764 L 362.0 400.62959250567764 L 359.5 395.62959250567764 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 317.4777292904054 398.9777292904054 L 333.687242709778 398.9777292904054 Q 343.687242709778 398.9777292904054 343.687242709778 399.8036608980415 L 343.687242709778 400.2166267018596 Q 343.687242709778 400.62959250567764 353.687242709778 400.62959250567764 L 370.0 400.62959250567764" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="343" y="400">Si</text>
+  <g id="_13">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="367" y="449"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="409" y="474">Mostrar </text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="409" y="485">mensaje</text>
+  <g id="_14">
+    <path d="M 366.5 464.39605463077737 L 356.5 469.39605463077737 L 359.0 464.39605463077737 L 356.5 459.39605463077737 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 298.29434482168034 418.20565517831966 L 298.29434482168034 454.39605463077737 Q 298.29434482168034 464.39605463077737 308.29434482168034 464.39605463077737 L 367.0 464.39605463077737" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="308" y="464">No</text>
+  <g id="_16">
+    <path d="M 513.500939990317 474.8265675735064 L 503.50093999031697 479.8265675735064 L 506.00093999031697 474.8265675735064 L 503.50093999031697 469.8265675735064 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 452.5 477.2886017696883 L 473.18149965778605 477.2886017696883 Q 483.18149965778605 477.2886017696883 483.18149965778605 476.05758467159734 L 483.18149965778605 475.44207612255184 Q 483.18149965778605 474.8265675735064 493.18149965778605 474.8265675735064 L 514.000939990317 474.8265675735064" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_15">
+    <ellipse cx="529" cy="474" fill="url(#g1)" rx="16" ry="16" stroke="#000000" stroke-width="4.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="529" y="509">Finaliza proceso</text>
+  <g id="_26">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="635" y="371"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="678" y="396">Registrar</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="678" y="407">En sistema</text>
+  <g id="_28">
+    <ellipse cx="850" cy="398" fill="url(#g1)" rx="16" ry="16" stroke="#000000" stroke-width="4.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="850" y="432">Finaliza proceso</text>
+  <g id="_29">
+    <path d="M 834.5037394262653 398.3459012246021 L 824.5037394262653 403.3459012246021 L 827.0037394262653 398.3459012246021 L 824.5037394262653 393.3459012246021 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 721.5 398.8459012246021 L 767.5327931851934 398.8459012246021 Q 777.5327931851934 398.8459012246021 777.5327931851934 398.5959012246021 L 777.5327931851934 398.4709012246021 Q 777.5327931851934 398.3459012246021 787.5327931851934 398.3459012246021 L 835.0037394262653 398.3459012246021" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <rect fill="none" height="200" id="_2" stroke="#000000" stroke-width="1.0" width="1010" x="1" y="119"/>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(270 18.0 219.0)" x="18" y="222">Operador At. público</text>
+  <g id="_5">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="141" y="171"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="183" y="201">Ingresar DNI</text>
+  <g id="_7">
+    <path d="M 140.5 198.76716362347292 L 130.5 203.76716362347292 L 133.0 198.76716362347292 L 130.5 193.76716362347292 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 102.49678894867299 194.6794639932652 L 112.10654883379871 194.6794639932652 Q 121.71630871892444 194.6794639932652 121.71630871892444 196.72331380836906 L 121.71630871892444 197.745238715921 Q 121.71630871892444 198.76716362347292 131.35815435946222 198.76716362347292 L 141.0 198.76716362347292" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_4">
+    <ellipse cx="86" cy="194" fill="url(#g1)" rx="16" ry="16" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="86" y="224">Selecciona</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="86" y="235">modificar cliente</text>
+  <g id="_18">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="117" x="353" y="174"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="411" y="199">Solicitar</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="411" y="210">Datos Actualizados</text>
+  <g id="_22">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="515" y="173"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="558" y="198">Ingresar</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="558" y="209">Datos</text>
+  <g id="_24">
+    <rect fill="url(#g1)" height="55" rx="8.25" ry="8.25" stroke="#000000" stroke-width="1.0" width="85" x="640" y="175"/>
+  </g>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="682" y="200">Confirma</text>
+  <text fill="#000000" font-decoration="none" font-family="Arial,Helvetica" font-size="11" font-weight="normal" text-anchor="middle" x="682" y="211">Datos</text>
+  <g id="_25">
+    <path d="M 639.5 202.59092520348634 L 629.5 207.59092520348634 L 632.0 202.59092520348634 L 629.5 197.59092520348634 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 601.5 201.40109618439604 L 610.9904430165425 201.40109618439604 Q 620.4808860330851 201.40109618439604 620.4808860330851 201.99601069394117 L 620.4808860330851 202.29346794871375 Q 620.4808860330851 202.59092520348634 630.2404430165425 202.59092520348634 L 640.0 202.59092520348634" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_8">
+    <path d="M 184.22989931802812 378.5 L 179.22989931802812 368.5 L 184.22989931802812 371.0 L 189.22989931802812 368.5 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 184.22989931802812 226.5 L 184.22989931802812 292.79973712448566 Q 184.22989931802812 302.79973712448566 184.22989931802812 312.79973712448566 L 184.22989931802812 379.0" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_19">
+    <path d="M 412.50420899023953 229.5 L 417.50420899023953 239.5 L 412.50420899023953 237.0 L 407.50420899023953 239.5 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 412.50420899023953 372.5 L 412.50420899023953 311.06479625283885 Q 412.50420899023953 301.06479625283885 412.50420899023953 291.06479625283885 L 412.50420899023953 229.0" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_21">
+    <path d="M 409.0601054484067 76.5 L 414.0601054484067 86.5 L 409.0601054484067 84.0 L 404.0601054484067 86.5 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 409.0601054484067 173.5 L 409.0601054484067 135.0 Q 409.0601054484067 125.0 409.0601054484067 115.0 L 409.0601054484067 76.0" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_23">
+    <path d="M 554.1954410060764 173.5 L 549.1954410060764 163.5 L 554.1954410060764 166.0 L 559.1954410060764 163.5 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 452.5 48.5 L 544.1954410060764 48.5 Q 554.1954410060764 48.5 554.1954410060764 58.5 L 554.1954410060764 174.0" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+  <g id="_27">
+    <path d="M 680.3548010192737 370.5 L 675.3548010192737 360.5 L 680.3548010192737 363.0 L 685.3548010192737 360.5 z" fill="#000000" stroke="#000000" stroke-width="1.0"/>
+    <path d="M 680.3548010192737 230.5 L 680.3548010192737 290.7184132140442 Q 680.3548010192737 300.7184132140442 680.3548010192737 310.7184132140442 L 680.3548010192737 371.0" fill="none" stroke="#000000" stroke-width="1.0"/>
+  </g>
+</svg>
