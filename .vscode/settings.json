@@ -1,7 +1,23 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src",
+        "resources"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/jdk.jsobject.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.base.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/jfx.incubator.richtext.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.media.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.controls.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.graphics.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx-swt.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.fxml.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/jfx.incubator.input.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.web.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/javafx.swing.jar",
+        "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib/mysql-connector-j-9.2.0.jar"
+    ],
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.format.settings.url": ".vscode/java-formatter.xml"
 }

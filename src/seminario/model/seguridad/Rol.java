@@ -12,6 +12,12 @@ public class Rol {
     public Rol(){       
     }
 
+    public Rol(Long idRol, String nombre){
+        this.idRol = idRol;
+        this.nombre = nombre;
+        this.listaPermisos = new ArrayList<>();
+    }
+
     public Rol(Long idRol, String nombre, List<Permiso> listaPermisos) {
         this.idRol = idRol;
         this.nombre = nombre;

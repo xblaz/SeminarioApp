@@ -17,6 +17,11 @@ public class Usuario {
     public Usuario(){
     }
 
+    public Usuario(Long id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
+
     public Usuario(Long id, String nombre, Date fechaAlta, Date fechaBaja, String clave, Boolean estado) {
         this.id = id;
         this.fechaAlta = fechaAlta;

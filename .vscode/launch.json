@@ -9,8 +9,15 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "seminario.Main",
-            "projectName": "SeminarioApp_227df0eb",
-            "vmArgs": "--module-path /home/cristian/Escritorio/Seminario_App/SeminarioApp/lib --add-modules javafx.controls,javafx.fxml"
+            "projectName": "SeminarioApp_6db7fa2"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "seminario.Main",
+            "projectName": "SeminarioApp",
+            "vmArgs": "--module-path /home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
