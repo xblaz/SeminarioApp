@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import seminario.dao.seguridad.PermisoDao;
 import seminario.dao.seguridad.RolDao;
 import seminario.dao.seguridad.UsuarioDao;
 import seminario.model.LogicaException;
@@ -20,11 +19,9 @@ import seminario.utils.TemplateLoader;
 public class UsuarioDaoImpl extends TemplateLoader implements UsuarioDao {
 
     private final RolDao rolDao;
-    private final PermisoDao permisoDao;
-
-    public UsuarioDaoImpl(RolDao rolDao, PermisoDao permisoDao){
+    
+    public UsuarioDaoImpl(RolDao rolDao){
         this.rolDao = rolDao;
-        this.permisoDao = permisoDao;
     }
 
     @Override
@@ -66,15 +63,16 @@ public class UsuarioDaoImpl extends TemplateLoader implements UsuarioDao {
                 );
             }
 
-            Rol rol = new Rol(rs.getLong("rol_id"), rs.getString("rol_nombre"));
-            roles.add(rol);
+            roles = rolDao.obtenerRolesPorUsuarioId(usuario.getId());
+            roles.addAll(roles);
         }
 
         if (usuario != null) {
             usuario.setListaRoles(roles);
         }
-
+        
         return usuario;
+
     } catch (SQLException e) {
         throw new LogicaException("Error durante login: " + e.getMessage());
     }

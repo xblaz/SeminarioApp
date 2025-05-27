@@ -1,10 +1,17 @@
 package seminario.dao.seguridad.impl;
 
 import java.util.List;
+import seminario.dao.seguridad.PermisoDao;
 import seminario.dao.seguridad.RolDao;
 import seminario.model.seguridad.Rol;
 
 public class RolDaoImpl implements RolDao {
+    
+    private final PermisoDao permisoDao;
+
+    public RolDaoImpl(PermisoDao permiso) {
+        this.permisoDao = permiso;
+    }
 
     @Override
     public Rol obtenerRolPorId(Long pId) {
@@ -13,7 +20,7 @@ public class RolDaoImpl implements RolDao {
     }
 
     @Override
-    public List<Rol> obtenerRolesPorId(Long pId) {
+    public List<Rol> obtenerRolesPorUsuarioId(Long pId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'obtenerRolesPorId'");
     }
