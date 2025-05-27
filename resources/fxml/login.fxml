@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="seminario.controller.LoginController" prefWidth="300" prefHeight="200">
+    <children>
+        <VBox spacing="10" alignment="CENTER" layoutX="30" layoutY="40">
+            <TextField fx:id="txtUsername" promptText="Usuario" />
+            <PasswordField fx:id="txtPassword" promptText="Contraseña" />
+            <Button text="Iniciar Sesión" onAction="#onLogin" />
+        </VBox>
+    </children>
+</AnchorPane>
