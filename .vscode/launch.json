@@ -9,15 +9,7 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "seminario.Main",
-            "projectName": "SeminarioApp_6ff6d111"
-        },
-        {
-            "type": "java",
-            "name": "Main",
-            "request": "launch",
-            "mainClass": "seminario.Main",
-            "projectName": "SeminarioApp",
-            "vmArgs": "--module-path /home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
