@@ -1,9 +1,9 @@
-package seminario.controller;
+package ar.edu.ues21.seminario.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import seminario.service.LoginService;
+import ar.edu.ues21.seminario.service.LoginService;
 
 public class LoginController {
 

@@ -1,4 +1,4 @@
-package seminario.config;
+package ar.edu.ues21.seminario.config;
 
 public class Configuracion {
     public final static String USERNAME = "admin";

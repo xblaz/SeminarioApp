@@ -5,15 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4893fdea-6b8b-45b2-8567-33040e26e5ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeminarioApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/view/SplashScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/config/Configuracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/config/Configuracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/PermisoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/PermisoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/RolDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/RolDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/UsuarioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/UsuarioDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/PermisoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/PermisoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/RolDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/RolDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/UsuarioDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/UsuarioDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/model/LogicaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/LogicaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Permiso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Permiso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Rol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/utils/DatabaseConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/DatabaseConexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/utils/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminario/utils/TemplateLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/TemplateLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +46,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2xgwtvfF9JdisSJnLdi5qqyCfzO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,8 +60,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/lib",
-    "project.structure.last.edited": "Libraries",
+    "last_opened_file_path": "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/javafx-sdk-24.0.1/lib",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }

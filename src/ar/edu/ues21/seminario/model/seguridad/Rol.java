@@ -1,4 +1,4 @@
-package seminario.model.seguridad;
+package ar.edu.ues21.seminario.model.seguridad;
 
 import java.util.ArrayList;
 import java.util.List;

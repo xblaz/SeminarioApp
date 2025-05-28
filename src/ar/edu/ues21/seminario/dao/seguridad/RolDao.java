@@ -1,7 +1,8 @@
-package seminario.dao.seguridad;
+package ar.edu.ues21.seminario.dao.seguridad;
 
 import java.util.List;
-import seminario.model.seguridad.Rol;
+
+import ar.edu.ues21.seminario.model.seguridad.Rol;
 
 public interface  RolDao {
     public Rol obtenerRolPorId(Long pId);

@@ -1,10 +1,11 @@
-package seminario.utils;
+package ar.edu.ues21.seminario.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import seminario.config.Configuracion;
-import seminario.model.LogicaException;
+
+import ar.edu.ues21.seminario.config.Configuracion;
+import ar.edu.ues21.seminario.model.LogicaException;
 
 public class DatabaseConexion {
     

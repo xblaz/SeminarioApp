@@ -1,8 +1,8 @@
-package seminario.dao.seguridad;
+package ar.edu.ues21.seminario.dao.seguridad;
 
 import java.util.List;
 
-import seminario.model.seguridad.Permiso;
+import ar.edu.ues21.seminario.model.seguridad.Permiso;
 
 public interface PermisoDao {
     public Permiso obtenerPermisoPorId(Long pId);

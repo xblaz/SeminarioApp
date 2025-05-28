@@ -1,9 +1,10 @@
-package seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.dao.seguridad.impl;
 
 import java.util.List;
-import seminario.dao.seguridad.PermisoDao;
-import seminario.dao.seguridad.RolDao;
-import seminario.model.seguridad.Rol;
+
+import ar.edu.ues21.seminario.model.seguridad.Rol;
+import ar.edu.ues21.seminario.dao.seguridad.PermisoDao;
+import ar.edu.ues21.seminario.dao.seguridad.RolDao;
 
 public class RolDaoImpl implements RolDao {
     

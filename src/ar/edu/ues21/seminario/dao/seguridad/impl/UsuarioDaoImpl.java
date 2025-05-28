@@ -1,4 +1,4 @@
-package seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.dao.seguridad.impl;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -8,13 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import seminario.dao.seguridad.RolDao;
-import seminario.dao.seguridad.UsuarioDao;
-import seminario.model.LogicaException;
-import seminario.model.seguridad.Rol;
-import seminario.model.seguridad.Usuario;
-import seminario.utils.DatabaseConexion;
-import seminario.utils.TemplateLoader;
+
+import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.model.seguridad.Rol;
+import ar.edu.ues21.seminario.model.seguridad.Usuario;
+import ar.edu.ues21.seminario.utils.DatabaseConexion;
+import ar.edu.ues21.seminario.utils.TemplateLoader;
+import ar.edu.ues21.seminario.dao.seguridad.RolDao;
 
 public class UsuarioDaoImpl extends TemplateLoader implements UsuarioDao {
 

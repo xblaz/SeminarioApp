@@ -1,4 +1,4 @@
-package seminario;
+package ar.edu.ues21.seminario;
 
 import java.io.IOException;
 

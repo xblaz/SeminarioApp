@@ -1,8 +1,9 @@
-package seminario.dao.seguridad;
+package ar.edu.ues21.seminario.dao.seguridad;
 
 import java.util.List;
-import seminario.model.seguridad.Rol;
-import seminario.model.seguridad.Usuario;
+
+import ar.edu.ues21.seminario.model.seguridad.Rol;
+import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
 public interface UsuarioDao {
     public void crear(Usuario pUsuario);

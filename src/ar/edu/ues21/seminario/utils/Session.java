@@ -1,6 +1,6 @@
-package seminario.utils;
+package ar.edu.ues21.seminario.utils;
 
-import seminario.model.seguridad.Usuario;
+import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
 
 public class Session {

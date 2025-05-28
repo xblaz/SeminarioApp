@@ -1,8 +1,4 @@
-package seminario.service;
-
-import seminario.dao.seguridad.UsuarioDao;
-import seminario.dao.seguridad.impl.UsuarioDaoImpl;
-import seminario.model.seguridad.Usuario;
+package ar.edu.ues21.seminario.service;
 
 public class LoginService {
 

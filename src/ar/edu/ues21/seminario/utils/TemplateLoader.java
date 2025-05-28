@@ -1,4 +1,4 @@
-package seminario.utils;
+package ar.edu.ues21.seminario.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
