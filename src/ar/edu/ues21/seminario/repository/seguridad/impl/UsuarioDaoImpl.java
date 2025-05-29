@@ -1,4 +1,4 @@
-package ar.edu.ues21.seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.repository.seguridad.impl;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -9,13 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.repository.seguridad.UsuarioDao;
 import ar.edu.ues21.seminario.model.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
+import ar.edu.ues21.seminario.repository.seguridad.RolDao;
 import ar.edu.ues21.seminario.utils.DatabaseConexion;
 import ar.edu.ues21.seminario.utils.TemplateLoader;
-import ar.edu.ues21.seminario.dao.seguridad.RolDao;
 
 public class UsuarioDaoImpl extends TemplateLoader implements UsuarioDao {
 
@@ -41,42 +41,6 @@ public class UsuarioDaoImpl extends TemplateLoader implements UsuarioDao {
     public void actualizar(Usuario pUsuario) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'actualizar'");
-    }
-
-    @Override
-    public Usuario login(String pUsuario, String pClave) {
-        String sql = "SELECT id, nombre, clave FROM usuarios WHERE nombre = ?";
-         try (PreparedStatement stmt = DatabaseConexion.getConnection().prepareStatement(sql)) {
-        stmt.setString(1, pUsuario);
-        ResultSet rs = stmt.executeQuery();
-
-        Usuario usuario = null;
-        List<Rol> roles = new ArrayList<>();
-
-        while (rs.next()) {
-            if (usuario == null) {
-                String hash = rs.getString("clave");
-                if (!verificarPassword(pClave, hash)) return null;
-
-                usuario = new Usuario(
-                    rs.getLong("usuario_id"),
-                    rs.getString("nombre")                    
-                );
-            }
-
-            roles = rolDao.obtenerRolesPorUsuarioId(usuario.getId());
-            roles.addAll(roles);
-        }
-
-        if (usuario != null) {
-            usuario.setListaRoles(roles);
-        }
-        
-        return usuario;
-
-    } catch (SQLException e) {
-        throw new LogicaException("Error durante login: " + e.getMessage());
-    }
     }
 
     @Override

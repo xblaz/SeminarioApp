@@ -8,6 +8,7 @@
             <TextField fx:id="txtUsername" promptText="Usuario" />
             <PasswordField fx:id="txtPassword" promptText="Contraseña" />
             <Button text="Iniciar Sesión" onAction="#onLogin" />
+            <Label fx:id="lblError" style="-fx-text-fill: red;"/>
         </VBox>
     </children>
 </AnchorPane>
