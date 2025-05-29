@@ -9,23 +9,23 @@ import ar.edu.ues21.seminario.model.LogicaException;
 
 public class DatabaseConexion {
     
-    private static Connection con = null;
+    private static Connection connexion = null;
 
     public synchronized static Connection getConnection() {
         try {
-            if (con == null || con.isClosed()) {
-                con = DriverManager.getConnection(Configuracion.URL, Configuracion.USERNAME, Configuracion.PASSWORD);
+            if (connexion == null || connexion.isClosed()) {
+                connexion = DriverManager.getConnection(Configuracion.URL, Configuracion.USERNAME, Configuracion.PASSWORD);
             }
         } catch (SQLException e) {
             throw new LogicaException(String.format("Error conectado a la base de datos: %s", e.getMessage()));
         }
-        return con;
+        return connexion;
     }
 
     public static void cerrarConexion() {
     try {
-        if (con != null && !con.isClosed()) {
-            con.close();
+        if (connexion != null && !connexion.isClosed()) {
+            connexion.close();
         }
     } catch (SQLException e) {
         throw new LogicaException(String.format("Error cerrando conexión: %s", e.getMessage()));

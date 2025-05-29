@@ -27,14 +27,14 @@ public class LoginController {
 
     @FXML
     public void onLogin() {
-         try {
-            Usuario usuario = authService.login(txtUsername.getText(),txtPassword.getText());
-            System.out.println("Logueado!");
-            SessionManager.setUsuario(usuario);
+         //try {
+            //Usuario usuario = authService.login(txtUsername.getText(),txtPassword.getText());
+            //System.out.println("Logueado!");
+            //SessionManager.setUsuario(usuario);
            // cargarVistaPrincipal(usuario);
-        } catch (AuthException e) {
-            lblError.setText(e.getMessage());
-             ViewHelper.mostrarError(e.getMessage());
-        }
+        //} catch (AuthException e) {
+       //     lblError.setText(e.getMessage());
+        //     ViewHelper.mostrarError(e.getMessage());
+        //}
     }
 }

@@ -1,11 +1,18 @@
-package ar.edu.ues21.seminario.repository.seguridad.impl;
+package ar.edu.ues21.seminario.dao.seguridad.impl;
 
+import java.sql.Connection;
 import java.util.List;
 
+import ar.edu.ues21.seminario.dao.seguridad.PermisoDao;
 import ar.edu.ues21.seminario.model.seguridad.Permiso;
-import ar.edu.ues21.seminario.repository.seguridad.PermisoDao;
 
 public class PermisoDaoImpl implements PermisoDao {
+
+    private final Connection conn;
+
+    public PermisoDaoImpl(Connection conn) {
+        this.conn = conn;
+    }
 
     @Override
     public Permiso obtenerPermisoPorId(Long pId) {

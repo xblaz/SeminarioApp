@@ -1,5 +1,6 @@
 package ar.edu.ues21.seminario.auth;
 
+import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMemoriaImpl;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
@@ -8,10 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MemoriaAuth implements AuthMethod{
+public class MemoriaAuth implements AuthMethod {
+
+    private final UsuarioDaoMemoriaImpl usuarioDao;
+
     private static final Map<String, Usuario> USUARIOS_PREDEFINIDOS;
 
-    // Roles predefinidos (final para inmutabilidad)
     private static final Rol ROL_ADMINISTRADOR = new Rol(-1L, "Administrador");
     private static final Rol ROL_OPERADOR = new Rol(-2L, "Operador");
 
@@ -34,6 +37,10 @@ public class MemoriaAuth implements AuthMethod{
         usuariosTemp.put(superUser.getNombre(), superUser);
 
         USUARIOS_PREDEFINIDOS = Collections.unmodifiableMap(usuariosTemp);
+    }
+
+    public MemoriaAuth(UsuarioDaoMemoriaImpl impl){
+        this.usuarioDao = impl;
     }
 
     @Override
@@ -63,8 +70,6 @@ public class MemoriaAuth implements AuthMethod{
     public List<Usuario> getUsuariosDePrueba() {
         return List.copyOf(USUARIOS_PREDEFINIDOS.values());
     }
-
-    // --- Métodos auxiliares ---
 
     /**
      * Simula hashing de contraseña

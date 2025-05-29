@@ -1,4 +1,4 @@
-package ar.edu.ues21.seminario.repository.seguridad;
+package ar.edu.ues21.seminario.dao.seguridad;
 
 import java.util.List;
 

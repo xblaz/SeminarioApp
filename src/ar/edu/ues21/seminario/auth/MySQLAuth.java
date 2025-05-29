@@ -1,6 +1,9 @@
 package ar.edu.ues21.seminario.auth;
 
+import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMySQLImpl;
 import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.utils.DatabaseConexion;
 
@@ -11,42 +14,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MySQLAuth implements AuthMethod {
-    @Override
-    public Usuario autenticar(String pUsuario, String pClave) throws AuthException {
-        try (Connection conn = DatabaseConexion.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT id, nombre, clave FROM usuarios WHERE nombre = ? AND clave = ?")) {
-            stmt.setString(1, pUsuario);
-            stmt.setString(2, hashSHA256(pClave));
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    Usuario usuario = new Usuario();
-                    usuario.setId(rs.getLong("id"));
-                    usuario.setNombre(rs.getString("nombre"));
-                    return usuario;
-                }
-            }
-        } catch (SQLException e) {
-            throw new AuthException("Error en autenticación MySQL: " + e.getMessage());
-        }
-        throw new AuthException("Usuario y contraseña inválidos");
+    private final UsuarioDao usuarioDao;
+
+    public MySQLAuth(UsuarioDao usuarioDao) {
+        this.usuarioDao = usuarioDao;
     }
 
-    private String hashSHA256(String password) {
+    @Override
+    public Usuario autenticar(String pUsuario, String pClave) throws AuthException {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            StringBuilder hexString = new StringBuilder();
-
-            for (byte b : hashBytes) {
-                String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
+            if (!usuarioDao.validarCredenciales(pUsuario, pClave)) {
+                throw new AuthException("Las credenciales ingresadas son inválidas");
             }
-            return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
-            throw new LogicaException(String.format("Error al calcular hash SHA-256: %s", e.getMessage()));
+            Usuario usuario = usuarioDao.buscarPorNombre(pUsuario).orElseThrow(() -> new AuthException("Usuario no encontrado en el sistema"));
+            List<Rol> roles = usuarioDao.listarRolesPorUsuarioId(usuario.getId());
+            usuario.getListaRoles().addAll(roles);
+            return usuario;
+
+        } catch ( LogicaException e) {
+            throw new AuthException("Error en autenticación MySQL: " + e.getMessage());
         }
     }
 }

@@ -4,7 +4,10 @@ import ar.edu.ues21.seminario.auth.AuthException;
 import ar.edu.ues21.seminario.auth.AuthFactory;
 import ar.edu.ues21.seminario.auth.AuthMethod;
 import ar.edu.ues21.seminario.auth.AuthType;
+import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMySQLImpl;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
+
+import java.util.Map;
 
 public class AuthService {
 
@@ -12,6 +15,9 @@ public class AuthService {
 
     public AuthService(AuthType authType) {
         this.authMethod = AuthFactory.createAuth(authType);
+    }
+    public AuthService() {
+        this.authMethod = AuthFactory.createAutoConfigAuth();
     }
 
     public Usuario login(String username, String password) throws AuthException {
@@ -21,11 +27,11 @@ public class AuthService {
 
     private void validarCredenciales(String username, String password) throws AuthException {
         if (username == null || username.trim().isEmpty()) {
-            throw new AuthException("Username no puede estar vacío");
+            throw new AuthException("Nombre de usuario no puede estar vacío");
         }
 
         if (password == null || password.isEmpty()) {
-            throw new AuthException("Password no puede estar vacío");
+            throw new AuthException("Contraseña no puede estar vacío");
         }
     }
 
