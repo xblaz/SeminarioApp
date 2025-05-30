@@ -27,7 +27,7 @@ public class Main extends Application {
         stage.show();*/
          Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
          stage.setTitle("App Prestamo");
-         stage.setScene(new Scene(root, 400, 300));
+         stage.setScene(new Scene(root, 600, 400));
          stage.show();
 
     }

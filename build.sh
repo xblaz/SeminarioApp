@@ -24,7 +24,9 @@ echo "✅ Compilación completada."
 # --- Copiar recursos ---
 echo "📁 Copiando recursos..."
 mkdir -p "$OUT_DIR/fxml"
-cp -r "$RESOURCES_DIR"/* "$OUT_DIR/fxml"
+mkdir -p "$OUT_DIR/css"
+cp -r "$RESOURCES_DIR"/fxml/* "$OUT_DIR/fxml"
+cp -r "$RESOURCES_DIR"/css/* "$OUT_DIR/css"
 
 # --- Ejecución ---
 echo "🚀 Ejecutando aplicación en entorno $APP_ENVIRONMENT"

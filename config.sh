@@ -16,7 +16,7 @@ OUT_DIR="out/production/SeminarioApp"
 MAIN_CLASS="ar.edu.ues21.seminario.Main"
 
 # Directorio de recursos
-RESOURCES_DIR="resources/fxml"
+RESOURCES_DIR="resources/"
 
 # Obtener el hash corto del último commit
 GIT_COMMIT_HASH=$(git rev-parse --short HEAD 2>/dev/null || echo "no-git")

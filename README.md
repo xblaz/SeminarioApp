@@ -19,7 +19,12 @@ Este documento describe la estructura de carpetas y archivos de la aplicación.
 
 - Java 23
 - JavaFX 24 
-- MySQL 
+- MySQL 9
+- FontAwesomeFX 4.7.0 
 
 MySQL 9.2.0
-https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.2.0/mysql-connector-j-9.2.0.jar
+- https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.2.0/mysql-connector-j-9.2.0.jar
+
+FontAwesomeFX
+- https://repo1.maven.org/maven2/de/jensd/fontawesomefx-fontawesome/4.7.0-9.1.2/fontawesomefx-fontawesome-4.7.0-9.1.2.jar
+- https://repo1.maven.org/maven2/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.jar

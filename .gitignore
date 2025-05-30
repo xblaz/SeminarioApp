@@ -2,3 +2,4 @@ bin/
 lib/
 out/
 .idea/
+.attach_*
