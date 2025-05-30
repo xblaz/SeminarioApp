@@ -84,6 +84,11 @@ public class UsuarioDaoMySQLImpl extends ResourceQueryLoader implements UsuarioD
         }
     }
 
+    @Override
+    public List<Usuario> listar() throws LogicaException {
+        return null;
+    }
+
     /**
      * 
      * @param password

@@ -22,19 +22,19 @@ public class LoginController {
     public void initialize() {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
-        authService = new AuthService(AuthType.MEMORIA);
+        authService = new AuthService();
     }
 
     @FXML
     public void onLogin() {
-         //try {
-            //Usuario usuario = authService.login(txtUsername.getText(),txtPassword.getText());
-            //System.out.println("Logueado!");
-            //SessionManager.setUsuario(usuario);
-           // cargarVistaPrincipal(usuario);
-        //} catch (AuthException e) {
-       //     lblError.setText(e.getMessage());
-        //     ViewHelper.mostrarError(e.getMessage());
-        //}
+         try {
+            Usuario usuario = authService.login(txtUsername.getText(),txtPassword.getText());
+            System.out.println("Logueado!");
+            SessionManager.setUsuario(usuario);
+            //cargarVistaPrincipal(usuario);
+        } catch (AuthException e) {
+            lblError.setText(e.getMessage());
+             ViewHelper.mostrarError(e.getMessage());
+        }
     }
 }

@@ -5,10 +5,7 @@ import ar.edu.ues21.seminario.model.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UsuarioDaoMemoriaImpl implements UsuarioDao {
@@ -56,7 +53,16 @@ public class UsuarioDaoMemoriaImpl implements UsuarioDao {
         return USUARIOS_PREDEFINIDOS.containsKey(pNombre.toLowerCase()) &&
                 USUARIOS_PREDEFINIDOS.get(pNombre.toLowerCase()).getClave().equals(pClave);
     }
+
+    @Override
+    public List<Usuario> listar() throws LogicaException {
+        final List<Usuario> usuarios = new ArrayList<>(USUARIOS_PREDEFINIDOS.values());
+        return Collections.unmodifiableList(usuarios);
+    }
+
     private static String hashPassword(String plainPassword) {
         return String.valueOf(plainPassword.hashCode());
     }
+
+
 }

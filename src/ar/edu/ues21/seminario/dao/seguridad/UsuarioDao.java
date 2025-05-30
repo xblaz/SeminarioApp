@@ -14,4 +14,5 @@ public interface UsuarioDao {
 	List<Rol> listarRolesPorUsuarioId(Long pId) throws LogicaException;
 	Optional<Usuario> buscarPorNombre(String pNombre) throws LogicaException;
 	boolean validarCredenciales(String pNombre, String pClave) throws LogicaException;
+	List<Usuario> listar() throws LogicaException;
 }

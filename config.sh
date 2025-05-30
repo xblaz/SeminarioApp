@@ -24,3 +24,7 @@ GIT_COMMIT_HASH=$(git rev-parse --short HEAD 2>/dev/null || echo "no-git")
 # Nombre del archivo JAR con versión
 JAR_FILE="SeminarioApp-${GIT_COMMIT_HASH}.jar"
 
+# Entorno
+APP_ENVIRONMENT=develop
+
+
