@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -25,36 +26,40 @@
     <!-- Menú lateral -->
     <left>
         <VBox prefWidth="200" styleClass="side-menu">
-            <Button onAction="#mostrarDashboard" styleClass="menu-button" text="Principal">
+            <Button onAction="#mostrarDashboard" styleClass="side-menu-button" text="Principal">
                 <graphic>
                     <FontAwesomeIcon glyphName="DASHBOARD" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarUsuarios" styleClass="menu-button" text="Clientes">
+            <Button onAction="#mostrarUsuarios" styleClass="side-menu-button" text="Clientes">
                 <graphic>
                     <FontAwesomeIcon glyphName="USERS" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarTransacciones" styleClass="menu-button" text="Transacciones">
+            <Button onAction="#mostrarTransacciones" styleClass="side-menu-button" text="Transacciones">
                 <graphic>
                     <FontAwesomeIcon glyphName="EXCHANGE" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarEstadisticas" styleClass="menu-button" text="Estadísticas">
+            <Button onAction="#mostrarEstadisticas" styleClass="side-menu-button" text="Estadísticas">
                 <graphic>
                     <FontAwesomeIcon glyphName="BAR_CHART" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarConfiguracion" styleClass="menu-button" text="Configuración">
+            <Button onAction="#mostrarConfiguracion" styleClass="side-menu-button" text="Configuración">
                 <graphic>
                     <FontAwesomeIcon glyphName="COG" size="16" />
                 </graphic>
             </Button>
             <Region VBox.vgrow="ALWAYS" />
-            <Button onAction="#cerrarSesion" styleClass="menu-button, logout-button" text="Cerrar Sesión">
+            <Button onAction="#cerrarSesion" text="Cerrar">
                 <graphic>
                     <FontAwesomeIcon glyphName="SIGN_OUT" size="16" />
                 </graphic>
+            <styleClass>
+               <String fx:value="side-menu-button" />
+               <String fx:value="logout-button" />
+            </styleClass>
             </Button>
         </VBox>
     </left>
@@ -76,6 +81,6 @@
         </HBox>
     </bottom>
    <center>
-      <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" BorderPane.alignment="TOP_LEFT" />
+      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="TOP_LEFT" />
    </center>
 </BorderPane>

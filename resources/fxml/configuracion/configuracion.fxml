@@ -6,14 +6,13 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane fx:id="borderPaneConfig" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="configuracionBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.edu.ues21.seminario.controller.ConfiguracionController">
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" stylesheets="@../../css/style.css" BorderPane.alignment="CENTER">
+      <ToolBar fx:id="mainToolbar" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-            <MenuButton mnemonicParsing="false" text="Seguridad">
+            <MenuButton mnemonicParsing="false" styleClass="toolbar-button" text="Seguridad">
               <items>
-                <MenuItem mnemonicParsing="false" text="Gestión de Usuarios">
+                <MenuItem mnemonicParsing="false" onAction="#mostrarAbmUsuario" text="Gestión de Usuarios">
                      <graphic>
                         <FontAwesomeIcon glyphName="USER" />
                      </graphic>

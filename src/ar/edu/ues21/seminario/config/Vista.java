@@ -1,7 +1,7 @@
 package ar.edu.ues21.seminario.config;
 
 public enum Vista {
-    USUARIO_VIEW("Usuarios", "configuracion/usuariosView.fxml"),
+    USUARIO_ABM("Usuarios", "configuracion/usuarios.fxml"),
     CONFIGURACION("Configuracion", "configuracion/configuracion.fxml"),
     PRINCIPAL("Principal", "principal.fxml");
 
