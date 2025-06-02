@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
@@ -27,7 +27,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.edu.ues21.seminario.controller.AdministradorController">
+<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.edu.ues21.seminario.controller.PrincipalController">
 
     <!-- Barra superior -->
     <top>
@@ -35,23 +35,23 @@
             <padding>
                 <Insets bottom="10" left="20" right="20" top="10" />
             </padding>
-            <FontAwesomeIconView glyphName="EXCHANGE" size="30" styleClass="logo-icon" />
+            <FontAwesomeIcon glyphName="EXCHANGE" size="30" styleClass="logo-icon" />
             <Label styleClass="app-title" text="Gestión de Prestamos" />
             <Region HBox.hgrow="ALWAYS" />
             <TextField fx:id="busquedaField" promptText="Buscar usuario..." styleClass="search-field" />
             <Button fx:id="btnBuscar" styleClass="icon-button">
                 <graphic>
-                    <FontAwesomeIconView glyphName="SEARCH" size="16" />
+                    <FontAwesomeIcon glyphName="SEARCH" size="16" />
                 </graphic>
             </Button>
             <Button fx:id="btnNotificaciones" styleClass="icon-button">
                 <graphic>
-                    <FontAwesomeIconView glyphName="BELL" size="16" />
+                    <FontAwesomeIcon glyphName="BELL" size="16" />
                 </graphic>
             </Button>
             <Button fx:id="btnPerfil" styleClass="icon-button">
                 <graphic>
-                    <FontAwesomeIconView glyphName="USER" size="16" />
+                    <FontAwesomeIcon glyphName="USER" size="16" />
                 </graphic>
             </Button>
         </HBox>
@@ -62,33 +62,33 @@
         <VBox prefWidth="200" styleClass="side-menu">
             <Button onAction="#mostrarDashboard" styleClass="menu-button" text="Dashboard">
                 <graphic>
-                    <FontAwesomeIconView glyphName="DASHBOARD" size="16" />
+                    <FontAwesomeIcon glyphName="DASHBOARD" size="16" />
                 </graphic>
             </Button>
             <Button onAction="#mostrarUsuarios" styleClass="menu-button, active-menu" text="Usuarios">
                 <graphic>
-                    <FontAwesomeIconView glyphName="USERS" size="16" />
+                    <FontAwesomeIcon glyphName="USERS" size="16" />
                 </graphic>
             </Button>
             <Button onAction="#mostrarTransacciones" styleClass="menu-button" text="Transacciones">
                 <graphic>
-                    <FontAwesomeIconView glyphName="EXCHANGE" size="16" />
+                    <FontAwesomeIcon glyphName="EXCHANGE" size="16" />
                 </graphic>
             </Button>
             <Button onAction="#mostrarEstadisticas" styleClass="menu-button" text="Estadísticas">
                 <graphic>
-                    <FontAwesomeIconView glyphName="BAR_CHART" size="16" />
+                    <FontAwesomeIcon glyphName="BAR_CHART" size="16" />
                 </graphic>
             </Button>
             <Button onAction="#mostrarConfiguracion" styleClass="menu-button" text="Configuración">
                 <graphic>
-                    <FontAwesomeIconView glyphName="COG" size="16" />
+                    <FontAwesomeIcon glyphName="COG" size="16" />
                 </graphic>
             </Button>
             <Region VBox.vgrow="ALWAYS" />
             <Button onAction="#cerrarSesion" styleClass="menu-button, logout-button" text="Cerrar Sesión">
                 <graphic>
-                    <FontAwesomeIconView glyphName="SIGN_OUT" size="16" />
+                    <FontAwesomeIcon glyphName="SIGN_OUT" size="16" />
                 </graphic>
             </Button>
         </VBox>
@@ -113,12 +113,12 @@
                                 <Region HBox.hgrow="ALWAYS" />
                                 <Button onAction="#nuevoUsuario" styleClass="action-button, primary-button" text="Nuevo Usuario">
                                     <graphic>
-                                        <FontAwesomeIconView glyphName="PLUS" size="12" />
+                                        <FontAwesomeIcon glyphName="PLUS" size="12" />
                                     </graphic>
                                 </Button>
                                 <Button onAction="#exportarUsuarios" styleClass="action-button" text="Exportar">
                                     <graphic>
-                                        <FontAwesomeIconView glyphName="DOWNLOAD" size="12" />
+                                        <FontAwesomeIcon glyphName="DOWNLOAD" size="12" />
                                     </graphic>
                                 </Button>
                             </HBox>
@@ -214,12 +214,12 @@
                                 <ComboBox fx:id="periodoEstadisticas" promptText="Periodo" />
                                 <Button onAction="#actualizarEstadisticas" styleClass="action-button" text="Actualizar">
                                     <graphic>
-                                        <FontAwesomeIconView glyphName="REFRESH" size="12" />
+                                        <FontAwesomeIcon glyphName="REFRESH" size="12" />
                                     </graphic>
                                 </Button>
                                 <Button onAction="#exportarEstadisticas" styleClass="action-button" text="Exportar">
                                     <graphic>
-                                        <FontAwesomeIconView glyphName="DOWNLOAD" size="12" />
+                                        <FontAwesomeIcon glyphName="DOWNLOAD" size="12" />
                                     </graphic>
                                 </Button>
                             </HBox>

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -26,7 +27,7 @@ public class Main extends Application {
         stage.setTitle("Login App");
         stage.show();*/
          Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-         stage.setTitle("App Prestamo");
+         stage.initStyle(StageStyle.UNDECORATED);
          stage.setScene(new Scene(root, 600, 400));
          stage.show();
 

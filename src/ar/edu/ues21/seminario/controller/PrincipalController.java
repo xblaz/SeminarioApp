@@ -1,24 +1,34 @@
 package ar.edu.ues21.seminario.controller;
 
+import ar.edu.ues21.seminario.config.Vista;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
+import ar.edu.ues21.seminario.view.SessionManager;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class AdministradorController implements RolBasedController, Initializable {
+public class PrincipalController implements Initializable {
+
+    @FXML
+    private BorderPane principalBorderPane;
 
     // Componentes de la interfaz
     @FXML private TextField idAdminField;
@@ -27,7 +37,6 @@ public class AdministradorController implements RolBasedController, Initializabl
     @FXML private TextField correoField;
     @FXML private PasswordField contrasenaField;
     @FXML private TextField numeroCuentaField;
-    @FXML private TextField busquedaField;
 
     @FXML private TableView<Usuario> tablaUsuarios;
     @FXML private TableColumn<Usuario, String> colIdUsuario;
@@ -41,14 +50,6 @@ public class AdministradorController implements RolBasedController, Initializabl
     @FXML private ComboBox<String> filtroUsuarios;
     @FXML private ComboBox<String> periodoEstadisticas;
 
-    //@FXML private Label totalUsuariosLabel;
-    //@FXML private Label totalTransaccionesLabel;
-    //@FXML private Label saldoPromedioLabel;
-   // @FXML private Label nuevosUsuariosLabel;
-    //@FXML private Label crecimientoUsuariosLabel;
-    //@FXML private Label crecimientoTransaccionesLabel;
-    //@FXML private Label crecimientoSaldoLabel;
-    //@FXML private Label crecimientoNuevosLabel;
     @FXML private Label statusLabel;
     @FXML private Label versionLabel;
 
@@ -65,19 +66,46 @@ public class AdministradorController implements RolBasedController, Initializabl
     private boolean modoEdicion = false;
     private Usuario usuarioActual = null;
 
+
+    /**
+     * Segun la opción del menu seleccionada realiza la carga de la vista
+     * en el centro de la aplicación
+     * @param fxmlFile
+     */
+    public void cargarFXML(Vista vista) {
+        try {
+            // Limpiar el centro antes de cargar nueva vista
+            principalBorderPane.setCenter(null);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + vista.getFxmlFile()));
+            Parent root = loader.load();
+            Object controller = loader.getController();
+            if (controller instanceof SubController) {
+                System.out.println("Entrando...");
+                SubController subControlador = (SubController) controller;
+                subControlador.setPrincipalController(this);
+                subControlador.setUsuario(usuarioActual);
+            }
+            principalBorderPane.setCenter(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Manejo de errores adecuado
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Inicializar componentes
-        cargarDatosEjemplo();
-        configurarTabla();
+        //cargarDatosEjemplo();
+        //configurarTabla();
 
-        configurarFiltros();
-        configurarGraficas();
-        actualizarEstadisticas();
+        //configurarFiltros();
+        //configurarGraficas();
+        //actualizarEstadisticas();
 
         // Ocultar formulario inicialmente
-        formUsuario.setVisible(false);
-        formUsuario.setManaged(false);
+        //formUsuario.setVisible(false);
+        //formUsuario.setManaged(false);
 
         // Actualizar barra de estado
         actualizarEstado("Sistema inicializado correctamente");
@@ -341,6 +369,7 @@ public class AdministradorController implements RolBasedController, Initializabl
     private void mostrarConfiguracion() {
         // Cambiar a la vista de configuración
         actualizarEstado("Mostrando Configuración");
+        cargarFXML(Vista.CONFIGURACION);
     }
 
     @FXML
@@ -352,8 +381,8 @@ public class AdministradorController implements RolBasedController, Initializabl
 
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
-                // Aquí iría la lógica para cerrar sesión
-                actualizarEstado("Sesión cerrada");
+                SessionManager.cerrarSesion();
+                Platform.exit();
             }
         });
     }
@@ -382,14 +411,13 @@ public class AdministradorController implements RolBasedController, Initializabl
         alert.showAndWait();
     }
 
-    private void actualizarEstado(String mensaje) {
+    public void actualizarEstado(String mensaje) {
         statusLabel.setText(mensaje);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         String tiempo = LocalDateTime.now().format(formatter);
         System.out.println("[" + tiempo + "] " + mensaje);
     }
 
-    @Override
     public void setUsuario(Usuario usuario) {
         this.usuarioActual = usuario;
     }

@@ -1,14 +1,23 @@
 /* Estilos generales */
 .root {
     -fx-font-family: 'Segoe UI', Arial, sans-serif;
-    -fx-font-size: 13px;
+    -fx-font-size: 12px;
     -fx-background-color: #f5f5f5;
+}
+
+.h1 {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.h2 {
+    -fx-font-size: 16px;
 }
 
 /* Barra superior */
 .top-bar {
-    -fx-background-color: #6200ee;
-    -fx-padding: 10px;
+    -fx-background-color: #1A55E3;
+    -fx-padding: 15px;
 }
 
 .app-title {
@@ -21,9 +30,9 @@
     -fx-fill: white;
 }
 
-.search-field {
-    -fx-background-radius: 20px;
-    -fx-padding: 8px 15px;
+.error-label {
+    -fx-text-fill: #d32f2f;
+    -fx-font-weight: bold;
 }
 
 .icon-button {
@@ -43,6 +52,42 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
 }
 
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #1A55E3;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 5, 0);
+    -fx-min-width: 200px;
+    -fx-pref-width: 250px;
+}
+
+.balance-box {
+    -fx-background-color: #6200ee;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.balance-title {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.balance-amount {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-alignment: center-left;
+    -fx-padding: 10 15 10 15;
+    -fx-background-radius: 5;
+}
+
+.menu-button:hover {
+    -fx-background-color: #f0f0f0;
+}
 .menu-button {
     -fx-background-color: transparent;
     -fx-text-fill: #333;
@@ -106,12 +151,20 @@
 }
 
 .primary-button {
-    -fx-background-color: #6200ee;
+    -fx-background-color: #1A55E3;
     -fx-text-fill: white;
 }
 
 .primary-button:hover {
-    -fx-background-color: #5000c8;
+    -fx-background-color: #5E6EED;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.primary-button:active {
+    -fx-background-color: #00FFAA;
+    -fx-text-fill: #1A55E3;
+    -fx-cursor: hand;
 }
 
 /* Formulario */
@@ -242,3 +295,4 @@
     -fx-border-width: 1 0 0 0;
     -fx-border-color: #e0e0e0;
 }
+
