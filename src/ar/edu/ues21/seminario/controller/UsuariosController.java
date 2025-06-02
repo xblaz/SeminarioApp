@@ -17,6 +17,7 @@ public class UsuariosController implements Initializable, SubController {
     @FXML private TableView<Usuario> tablaUsuarios;
     @FXML private TableColumn<Usuario, String> colIdUsuario;
     @FXML private TableColumn<Usuario, String> colNombre;
+    @FXML private TableColumn<Usuario, String> colFechaBaja;
     @FXML private TableColumn<Usuario, Void> colAcciones;
     @FXML private GridPane formUsuario;
     private boolean modoEdicion = false;
