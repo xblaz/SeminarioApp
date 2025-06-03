@@ -4,7 +4,7 @@
 JAVA_HOME="/home/cristian/.sdkman/candidates/java/23.0.2-tem"
 
 # Ruta al SDK de JavaFX
-JAVAFX_SDK="/home/cristian/Escritorio/Seminario/proyecto/javafx-sdk-24"
+JAVAFX_SDK="/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/javafx-sdk-24.0.1"
 
 # Directorio del código fuente
 SRC_DIR="src"

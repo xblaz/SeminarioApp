@@ -1,6 +1,7 @@
-## Getting Started
-
-# 📂 Estructura del Proyecto
+# Licenciatura en Informática - Universidad Siglo 21
+## Materia Seminario de Práctica de Informática
+## Sistema de Gestión de Préstamos (SiGeP)
+## 📂 Estructura del Proyecto
 
 | Carpeta                   | Rol técnico           | Justificación académica                            |
 | ------------------------- | --------------------- | -------------------------------------------------- |

@@ -45,8 +45,6 @@ public class LoginController {
             if (usuario != null) {
                 cargarVistaPrincipal(usuario);
             }
-
-            //
         } catch (AuthException e) {
              mostrarError(e.getMessage());
         }
@@ -68,7 +66,7 @@ public class LoginController {
             // Cerrar la ventana de login actual
             Stage loginStage = (Stage) txtUsuario.getScene().getWindow();
 
-            // Determinar qué vista cargar basado en los roles
+
             FXMLLoader loader;
             /*if (usuario.tieneRol("ADMINISTRADOR")) {
                 loader = new FXMLLoader(getClass().getResource("/vistas/AdminDashboard.fxml"));

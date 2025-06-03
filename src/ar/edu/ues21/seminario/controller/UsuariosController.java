@@ -3,8 +3,6 @@ package ar.edu.ues21.seminario.controller;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.view.datamodel.UsuarioDataModel;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

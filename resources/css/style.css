@@ -219,3 +219,9 @@
 .table-button:hover {
     -fx-background-color: #f0e6ff;
 }
+.table-cell {
+ -fx-alignment: BASELINE_CENTER;
+ }
+ .table-column {
+    -fx-alignment: BASELINE_CENTER;
+ }

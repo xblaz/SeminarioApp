@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Usuario {
-
     private Long id;
     private String nombre;
     private Date fechaAlta;
@@ -22,7 +21,6 @@ public class Usuario {
         this.nombre = nombre;
         this.clave = clave;
     }
-
 
     public Usuario(Long id, String nombre, Date fechaAlta, Date fechaBaja, String clave, Boolean estado) {
         this.id = id;

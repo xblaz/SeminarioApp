@@ -5,28 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4893fdea-6b8b-45b2-8567-33040e26e5ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/entregas/api3/SEMINARIO_VINF02891_FERNANDEZ_CRISTIAN_API_v3.odt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/entregas/api3/SEMINARIO_VINF02891_FERNANDEZ_CRISTIAN_API_v3.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/config/Configuracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/config/Configuracion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/PermisoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/PermisoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/RolDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/RolDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/UsuarioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/UsuarioDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/PermisoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/PermisoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/RolDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/RolDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/dao/seguridad/impl/UsuarioDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/dao/seguridad/impl/UsuarioDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/model/LogicaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/LogicaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Permiso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Permiso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Rol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/model/seguridad/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/utils/DatabaseConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/DatabaseConexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/utils/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminario/utils/TemplateLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/utils/TemplateLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.sh" beforeDir="false" afterPath="$PROJECT_DIR$/config.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker_mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/docker_mysql.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sql/seminario.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sql/seminario.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sql/seminario.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sql/seminario.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sql/seminario_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sql/seminario_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/controller/UsuariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/edu/ues21/seminario/model/seguridad/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +28,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -51,22 +49,26 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2xgwtvfF9JdisSJnLdi5qqyCfzO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/javafx-sdk-24.0.1/lib",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/cristian/Escritorio/Siglo_21/Seminario/proyecto/SeminarioApp/build.sh&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Shell Script.SeminarioRun">
     <configuration name="Seminario" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-23 (2)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -78,6 +80,25 @@
         <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration name="SeminarioRun" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/build.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Seminario" />
+      <item itemvalue="Shell Script.SeminarioRun" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -89,5 +110,20 @@
       <updated>1748373243407</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
