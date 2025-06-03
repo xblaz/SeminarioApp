@@ -36,19 +36,19 @@
                     <FontAwesomeIcon glyphName="USERS" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarTransacciones" styleClass="side-menu-button" text="Transacciones">
+            <Button onAction="#mostrarTransacciones" styleClass="side-menu-button" text="Prestamos">
                 <graphic>
-                    <FontAwesomeIcon glyphName="EXCHANGE" size="16" />
+                    <FontAwesomeIcon glyphName="CALCULATOR" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarEstadisticas" styleClass="side-menu-button" text="Estadísticas">
+            <Button onAction="#mostrarEstadisticas" styleClass="side-menu-button" text="Reportes">
                 <graphic>
-                    <FontAwesomeIcon glyphName="BAR_CHART" size="16" />
+                    <FontAwesomeIcon glyphName="FILE_EXCEL_ALT" size="16" />
                 </graphic>
             </Button>
             <Button onAction="#mostrarConfiguracion" styleClass="side-menu-button" text="Configuración">
                 <graphic>
-                    <FontAwesomeIcon glyphName="COG" size="16" />
+                    <FontAwesomeIcon glyphName="COGS" size="16" />
                 </graphic>
             </Button>
             <Region VBox.vgrow="ALWAYS" />

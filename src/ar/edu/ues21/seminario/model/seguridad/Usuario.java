@@ -63,23 +63,18 @@ public class Usuario {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public List<Rol> getListaRoles() {
         return listaRoles;
     }
-
     public void setListaRoles(List<Rol> listaRoles) {
         this.listaRoles = listaRoles;
     }
-
 
     public Boolean tienePermiso(String pPermiso) {
 		for (Rol r : this.listaRoles) {

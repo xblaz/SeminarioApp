@@ -59,22 +59,28 @@
                     <Label styleClass="form-section-title" text="Información de acceso" />
 
                     <Label styleClass="field-label" text="Nombre de Usuario" />
-                    <TextField fx:id="idAdminField" styleClass="form-field" />
+                    <TextField fx:id="nombreUsuarioField" styleClass="form-field" />
 
                     <Label styleClass="field-label" text="Contraseña" />
-                    <PasswordField fx:id="contrasenaField" styleClass="form-field" />
+                    <PasswordField fx:id="passwordField" styleClass="form-field" />
                 </VBox>
 
                 <HBox alignment="BOTTOM_LEFT" spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                    <Button onAction="#cancelarEdicion" styleClass="action-button" text="Cancelar" />
-                    <Button styleClass="action-button, primary-button" text="Guardar" />
+                    <Button onAction="#cancelarEdicion" styleClass="action-button" text="Cancelar">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="TIMES" />
+                  </graphic></Button>
+                    <Button styleClass="action-button, primary-button" text="Guardar">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="CHECK" />
+                  </graphic></Button>
                 </HBox>
 
                 <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <children>
-                  <Label styleClass="form-section-title" text="Rol" />
-                  <Label styleClass="field-label" text="Seleccionar roles" />
-                  <ListView prefHeight="115.0" prefWidth="371.0" styleClass="form-field" />
+                  <Label styleClass="form-section-title" text="Roles" />
+                  <Label styleClass="field-label" text="Asignar roles" />
+                  <ListView fx:id="viewRoles" prefHeight="115.0" prefWidth="371.0" styleClass="form-field" />
                </children>
                 </VBox>
                 <rowConstraints>
@@ -93,12 +99,12 @@
 
                 <TableView fx:id="tablaUsuarios" styleClass="data-table" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colIdUsuario" prefWidth="39.0" text="ID" />
+                        <TableColumn fx:id="colIdUsuario" prefWidth="39.0" resizable="false" text="ID" />
                         <TableColumn fx:id="colNombre" prefWidth="195.0" text="Nombre de usuario" />
                         <TableColumn fx:id="colFechaAlta" minWidth="0.0" prefWidth="113.0" text="Fecha de alta" />
                         <TableColumn fx:id="colFechaBaja" prefWidth="163.0" text="Fecha de baja" />
                         <TableColumn fx:id="colEstado" prefWidth="116.0" text="Estado" />
-                        <TableColumn fx:id="colAcciones" minWidth="8.0" prefWidth="73.0" text="Acciones" />
+                        <TableColumn fx:id="colAcciones" minWidth="8.0" prefWidth="127.0" resizable="false" text="Acciones" />
                     </columns>
                 </TableView>
             </VBox>

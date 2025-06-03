@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewHelper {
+public class Helper {
     public static void cambiarEscena(Stage stage, String fxml) throws IOException {
-        Parent root = FXMLLoader.load(ViewHelper.class.getResource("/fxml/" + fxml));
+        Parent root = FXMLLoader.load(Helper.class.getResource("/fxml/" + fxml));
         stage.setScene(new Scene(root));
         stage.show();
     }

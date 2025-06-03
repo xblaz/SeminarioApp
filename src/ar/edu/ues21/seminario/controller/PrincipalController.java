@@ -1,6 +1,6 @@
 package ar.edu.ues21.seminario.controller;
 
-import ar.edu.ues21.seminario.config.Vista;
+import ar.edu.ues21.seminario.view.Vista;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.view.SessionManager;
 import javafx.application.Platform;

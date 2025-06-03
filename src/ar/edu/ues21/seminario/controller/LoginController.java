@@ -94,10 +94,6 @@ public class LoginController {
             stage.setTitle("Sistema de Préstamos - Usuario: " + usuario.getNombre());
             stage.initModality(Modality.APPLICATION_MODAL);
 
-            // Configurar ícono
-            /*Image icon = new Image(getClass().getResourceAsStream("/images/app-icon.png"));
-            stage.getIcons().add(icon);*/
-
             // Configurar comportamiento al cerrar
             stage.setOnCloseRequest(e -> {
                 SessionManager.cerrarSesion();

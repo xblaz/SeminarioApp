@@ -20,12 +20,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("Login App");
-        stage.show();*/
          Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
          stage.initStyle(StageStyle.UNDECORATED);
          stage.setScene(new Scene(root, 600, 400));
@@ -33,12 +27,7 @@ public class Main extends Application {
 
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/" + fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-    
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         launch(args);
     }
 }

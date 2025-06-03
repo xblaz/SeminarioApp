@@ -1,4 +1,4 @@
-package ar.edu.ues21.seminario.config;
+package ar.edu.ues21.seminario.view;
 
 public enum Vista {
     USUARIO_ABM("Usuarios", "configuracion/usuarios.fxml"),
