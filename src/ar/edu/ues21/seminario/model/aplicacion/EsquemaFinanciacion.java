@@ -10,7 +10,8 @@ public abstract class EsquemaFinanciacion {
     private Integer cantidadCuotas;
     private Boolean requiereGarante;
     private EstadoEsquema estado;
-
+    public EsquemaFinanciacion() {
+    }
     public EsquemaFinanciacion(String descripcion, Double tasaInteres, Integer cantidadCuotas, Boolean requiereGarante, EstadoEsquema estado) {
         this.descripcion = descripcion;
         this.tasaInteres = tasaInteres;
@@ -67,11 +68,7 @@ public abstract class EsquemaFinanciacion {
         this.estado = estado;
     }
 
-    public BigDecimal calcularCuota(BigDecimal montoAFinanciar, Integer periodo) {
-        return null;
-    }
+    public abstract BigDecimal calcularCuota(BigDecimal montoAFinanciar, Integer periodo);
 
-    public List<Integer> generarPrestamo(Prestamo prestamo){
-        return null;
-    }
+    public abstract List<Cuota> generarPrestamo(Prestamo prestamo);
 }

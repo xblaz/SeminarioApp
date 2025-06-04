@@ -11,10 +11,11 @@ import java.util.stream.Collectors;
 public class ResourceQueryLoader {
 
     protected Map<String, String> sqltemplates;
+
     public static String loadSQL(String fileName) {
         try (InputStream inputStream = ResourceQueryLoader.class.getResourceAsStream("/sql_templates/" + fileName);
              BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+                     new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             return reader.lines().collect(Collectors.joining("\n"));
         } catch (Exception e) {
             e.printStackTrace();

@@ -11,9 +11,9 @@ public class Domicilio {
     private Integer localidad;
     private Integer provincia;
     private TipoDomicilio tipoDomicilio;
-
-    public Domicilio(){}
-    public Domicilio(Long idDomicilio,String calle, Integer numero, String piso, String codigoPostal, Integer localidad, Integer provincia, TipoDomicilio tipoDomicilio) {
+    public Domicilio() {
+    }
+    public Domicilio(Long idDomicilio, String calle, Integer numero, String piso, String codigoPostal, Integer localidad, Integer provincia, TipoDomicilio tipoDomicilio) {
         this.idDomicilio = idDomicilio;
         this.calle = calle;
         this.numero = numero;
@@ -27,51 +27,39 @@ public class Domicilio {
     public Long getIdDomicilio() {
         return idDomicilio;
     }
-
     public void setIdDomicilio(Long idDomicilio) {
         this.idDomicilio = idDomicilio;
     }
-
     public String getCalle() {
         return calle;
     }
-
     public void setCalle(String calle) {
         this.calle = calle;
     }
-
     public Integer getNumero() {
         return numero;
     }
-
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
-
     public String getPiso() {
         return piso;
     }
-
     public void setPiso(String piso) {
         this.piso = piso;
     }
-
     public String getCodigoPostal() {
         return codigoPostal;
     }
-
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
-
     public Integer getLocalidad() {
         return localidad;
     }
-
     public void setLocalidad(Integer localidad) {
         this.localidad = localidad;
     }
-
     public Integer getProvincia() {
         return provincia;
     }
@@ -91,8 +79,7 @@ public class Domicilio {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Domicilio)) return false;
-        Domicilio domicilio = (Domicilio) o;
+        if (!(o instanceof Domicilio domicilio)) return false;
         return getIdDomicilio().equals(domicilio.getIdDomicilio()) && getCalle().equals(domicilio.getCalle()) && getNumero().equals(domicilio.getNumero()) && Objects.equals(getPiso(), domicilio.getPiso()) && Objects.equals(getCodigoPostal(), domicilio.getCodigoPostal()) && getLocalidad().equals(domicilio.getLocalidad()) && getProvincia().equals(domicilio.getProvincia()) && Objects.equals(getTipoDomicilio(), domicilio.getTipoDomicilio());
     }
 

@@ -1,8 +1,8 @@
 package ar.edu.ues21.seminario.controller;
 
-import ar.edu.ues21.seminario.view.Vista;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.view.SessionManager;
+import ar.edu.ues21.seminario.view.Vista;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,38 +31,62 @@ public class PrincipalController implements Initializable {
     private BorderPane principalBorderPane;
 
     // Componentes de la interfaz
-    @FXML private TextField idAdminField;
-    @FXML private TextField idUsuarioField;
-    @FXML private TextField nombreField;
-    @FXML private TextField correoField;
-    @FXML private PasswordField contrasenaField;
-    @FXML private TextField numeroCuentaField;
+    @FXML
+    private TextField idAdminField;
+    @FXML
+    private TextField idUsuarioField;
+    @FXML
+    private TextField nombreField;
+    @FXML
+    private TextField correoField;
+    @FXML
+    private PasswordField contrasenaField;
+    @FXML
+    private TextField numeroCuentaField;
 
-    @FXML private TableView<Usuario> tablaUsuarios;
-    @FXML private TableColumn<Usuario, String> colIdUsuario;
-    @FXML private TableColumn<Usuario, String> colNombre;
-    @FXML private TableColumn<Usuario, String> colCorreo;
-    @FXML private TableColumn<Usuario, String> colNumeroCuenta;
-    @FXML private TableColumn<Usuario, Double> colSaldo;
-    @FXML private TableColumn<Usuario, String> colEstado;
-    @FXML private TableColumn<Usuario, Void> colAcciones;
+    @FXML
+    private TableView<Usuario> tablaUsuarios;
+    @FXML
+    private TableColumn<Usuario, String> colIdUsuario;
+    @FXML
+    private TableColumn<Usuario, String> colNombre;
+    @FXML
+    private TableColumn<Usuario, String> colCorreo;
+    @FXML
+    private TableColumn<Usuario, String> colNumeroCuenta;
+    @FXML
+    private TableColumn<Usuario, Double> colSaldo;
+    @FXML
+    private TableColumn<Usuario, String> colEstado;
+    @FXML
+    private TableColumn<Usuario, Void> colAcciones;
 
-    @FXML private ComboBox<String> filtroUsuarios;
-    @FXML private ComboBox<String> periodoEstadisticas;
+    @FXML
+    private ComboBox<String> filtroUsuarios;
+    @FXML
+    private ComboBox<String> periodoEstadisticas;
 
-    @FXML private Label statusLabel;
-    @FXML private Label versionLabel;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Label versionLabel;
 
-    @FXML private PieChart graficaGastos;
-    @FXML private BarChart<String, Number> graficaTransacciones;
-    @FXML private LineChart<String, Number> graficaTendenciaSaldos;
-    @FXML private AreaChart<String, Number> graficaActividad;
+    @FXML
+    private PieChart graficaGastos;
+    @FXML
+    private BarChart<String, Number> graficaTransacciones;
+    @FXML
+    private LineChart<String, Number> graficaTendenciaSaldos;
+    @FXML
+    private AreaChart<String, Number> graficaActividad;
 
-    @FXML private GridPane formUsuario;
-    @FXML private TabPane tabPaneContenido;
+    @FXML
+    private GridPane formUsuario;
+    @FXML
+    private TabPane tabPaneContenido;
 
     // Datos de ejemplo
-    private ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList();
+    private final ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList();
     private boolean modoEdicion = false;
     private Usuario usuarioActual = null;
 
@@ -70,6 +94,7 @@ public class PrincipalController implements Initializable {
     /**
      * Segun la opción del menu seleccionada realiza la carga de la vista
      * en el centro de la aplicación
+     *
      * @param fxmlFile
      */
     public void cargarFXML(Vista vista) {
@@ -79,9 +104,8 @@ public class PrincipalController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + vista.getFxmlFile()));
             Parent root = loader.load();
             Object controller = loader.getController();
-            if (controller instanceof SubController) {
+            if (controller instanceof SubController subControlador) {
                 System.out.println("Entrando...");
-                SubController subControlador = (SubController) controller;
                 subControlador.setPrincipalController(this);
                 subControlador.setUsuario(usuarioActual);
             }
@@ -156,8 +180,8 @@ public class PrincipalController implements Initializable {
     private void cargarDatosEjemplo() {
         // Datos de ejemplo para la tabla
         listaUsuarios.addAll(
-                new Usuario(1l, "Ana María López", "1234"),
-                new Usuario(2l, "Carlos Rodríguez", "123")
+                new Usuario(1L, "Ana María López", "1234"),
+                new Usuario(2L, "Carlos Rodríguez", "123")
         );
     }
 

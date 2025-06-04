@@ -4,13 +4,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-public class PersonaFisica extends  Persona {
+public class PersonaFisica extends Persona {
     private String nombre;
     private String apellido;
     private Long dni;
     private LocalDate fechaNacimiento;
     private Character genero;
-
     public PersonaFisica(Long idPersona, String email, LocalDate fechaRegistro, List<Domicilio> domicilios, List<Telefono> telefonos) {
         super(idPersona, email, fechaRegistro, domicilios, telefonos);
     }
@@ -58,9 +57,8 @@ public class PersonaFisica extends  Persona {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PersonaFisica)) return false;
+        if (!(o instanceof PersonaFisica that)) return false;
         if (!super.equals(o)) return false;
-        PersonaFisica that = (PersonaFisica) o;
         return Objects.equals(getNombre(), that.getNombre()) && Objects.equals(getApellido(), that.getApellido()) && Objects.equals(getDni(), that.getDni());
     }
 

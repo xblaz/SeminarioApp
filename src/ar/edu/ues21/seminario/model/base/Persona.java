@@ -75,8 +75,7 @@ public abstract class Persona {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Persona)) return false;
-        Persona persona = (Persona) o;
+        if (!(o instanceof Persona persona)) return false;
         return Objects.equals(email, persona.email);
     }
 

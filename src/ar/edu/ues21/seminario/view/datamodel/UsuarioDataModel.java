@@ -9,8 +9,8 @@ import javafx.collections.ObservableList;
 public class UsuarioDataModel {
 
     private final ObservableList<Usuario> usuariosList = FXCollections.observableArrayList(
-            new Usuario(-1l, "administrador", "123"),
-            new Usuario(-2l, "operador", "123")
+            new Usuario(-1L, "administrador", "123"),
+            new Usuario(-2L, "operador", "123")
     );
 
     private final ObjectProperty<Usuario> usuarioActual = new SimpleObjectProperty<>();

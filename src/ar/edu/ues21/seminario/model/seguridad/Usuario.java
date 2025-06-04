@@ -12,16 +12,12 @@ public class Usuario {
     private String clave;
     private Boolean estado;
     private List<Rol> listaRoles = new ArrayList<>();
-
-    public Usuario(){
-    }
-
-    public Usuario(Long id, String nombre, String clave){
+    public Usuario() { }
+    public Usuario(Long id, String nombre, String clave) {
         this.id = id;
         this.nombre = nombre;
         this.clave = clave;
     }
-
     public Usuario(Long id, String nombre, Date fechaAlta, Date fechaBaja, String clave, Boolean estado) {
         this.id = id;
         this.fechaAlta = fechaAlta;
@@ -30,7 +26,6 @@ public class Usuario {
         this.nombre = nombre;
         this.estado = estado;
     }
-    
     public Long getId() {
         return id;
     }
@@ -73,17 +68,16 @@ public class Usuario {
     public void setListaRoles(List<Rol> listaRoles) {
         this.listaRoles = listaRoles;
     }
-
     public Boolean tienePermiso(String pPermiso) {
-		for (Rol r : this.listaRoles) {
-			for (Permiso p : r.getListaPermisos()) {
-				if (p.getCodigo().equals(pPermiso))
-					return true;
-			}
-		}
-		return false;
-	}
-    
+        for (Rol r : this.listaRoles) {
+            for (Permiso p : r.getListaPermisos()) {
+                if (p.getCodigo().equals(pPermiso))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -108,11 +102,8 @@ public class Usuario {
         } else if (!id.equals(other.id))
             return false;
         if (nombre == null) {
-            if (other.nombre != null)
-                return false;
-        } else if (!nombre.equals(other.nombre))
-            return false;
-        return true;
+            return other.nombre == null;
+        } else return nombre.equals(other.nombre);
     }
 }
 

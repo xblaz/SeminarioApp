@@ -4,10 +4,7 @@ import ar.edu.ues21.seminario.auth.AuthException;
 import ar.edu.ues21.seminario.auth.AuthFactory;
 import ar.edu.ues21.seminario.auth.AuthMethod;
 import ar.edu.ues21.seminario.auth.AuthType;
-import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMySQLImpl;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
-
-import java.util.Map;
 
 public class AuthService {
 
@@ -16,6 +13,7 @@ public class AuthService {
     public AuthService(AuthType authType) {
         this.authMethod = AuthFactory.createAuth(authType);
     }
+
     public AuthService() {
         this.authMethod = AuthFactory.createAutoConfigAuth();
     }

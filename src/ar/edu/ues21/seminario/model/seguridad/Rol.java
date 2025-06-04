@@ -4,49 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rol {
-
     private Long idRol;
     private String nombre;
-    List<Permiso> listaPermisos = new ArrayList<>();
-
-    public Rol(){       
-    }
-    public Rol(String nombre){
-        this.nombre = nombre;
-    }
-
-    public Rol(Long idRol, String nombre){
+    private List<Permiso> listaPermisos = new ArrayList<>();
+    public Rol() {}
+    public Rol(Long idRol, String nombre) {
         this.idRol = idRol;
         this.nombre = nombre;
         this.listaPermisos = new ArrayList<>();
     }
-
-    public Rol(Long idRol, String nombre, List<Permiso> listaPermisos) {
-        this.idRol = idRol;
-        this.nombre = nombre;
-        this.listaPermisos = listaPermisos;
-    }
-
     public Long getIdRol() {
         return idRol;
     }
-
     public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public List<Permiso> getListaPermisos() {
         return listaPermisos;
     }
-
     public void setListaPermisos(List<Permiso> listaPermisos) {
         this.listaPermisos = listaPermisos;
     }
@@ -75,11 +56,8 @@ public class Rol {
         } else if (!idRol.equals(other.idRol))
             return false;
         if (nombre == null) {
-            if (other.nombre != null)
-                return false;
-        } else if (!nombre.equals(other.nombre))
-            return false;
-        return true;
+            return other.nombre == null;
+        } else return nombre.equals(other.nombre);
     }
-    
+
 }

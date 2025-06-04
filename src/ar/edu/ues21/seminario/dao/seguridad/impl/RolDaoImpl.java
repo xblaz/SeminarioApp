@@ -1,14 +1,14 @@
 package ar.edu.ues21.seminario.dao.seguridad.impl;
 
-import java.sql.Connection;
-import java.util.List;
-
 import ar.edu.ues21.seminario.dao.seguridad.PermisoDao;
 import ar.edu.ues21.seminario.dao.seguridad.RolDao;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 
+import java.sql.Connection;
+import java.util.List;
+
 public class RolDaoImpl implements RolDao {
-    
+
     private final PermisoDao permisoDao;
     private final Connection conexionDb;
 

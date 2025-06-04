@@ -6,5 +6,7 @@ public enum TipoTelefono {
     TipoTelefono(String tipo) {
         this.tipo = tipo;
     }
-    public String getTipo() { return tipo; }
+    public String getTipo() {
+        return tipo;
+    }
 }

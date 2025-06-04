@@ -1,14 +1,14 @@
 package ar.edu.ues21.seminario.utils;
 
+import ar.edu.ues21.seminario.config.Configuracion;
+import ar.edu.ues21.seminario.model.LogicaException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import ar.edu.ues21.seminario.config.Configuracion;
-import ar.edu.ues21.seminario.model.LogicaException;
-
 public class DatabaseConexion {
-    
+
     private static Connection connexion = null;
 
     public synchronized static Connection getConnection() {
@@ -23,12 +23,12 @@ public class DatabaseConexion {
     }
 
     public static void cerrarConexion() {
-    try {
-        if (connexion != null && !connexion.isClosed()) {
-            connexion.close();
+        try {
+            if (connexion != null && !connexion.isClosed()) {
+                connexion.close();
+            }
+        } catch (SQLException e) {
+            throw new LogicaException(String.format("Error cerrando conexión: %s", e.getMessage()));
         }
-    } catch (SQLException e) {
-        throw new LogicaException(String.format("Error cerrando conexión: %s", e.getMessage()));
     }
-}
 }

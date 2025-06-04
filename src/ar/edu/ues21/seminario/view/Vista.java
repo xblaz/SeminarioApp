@@ -13,6 +13,11 @@ public enum Vista {
         this.fxmlFile = fxmlFile;
     }
 
-    public String getTitulo() { return titulo; }
-    public String getFxmlFile() { return fxmlFile; }
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getFxmlFile() {
+        return fxmlFile;
+    }
 }

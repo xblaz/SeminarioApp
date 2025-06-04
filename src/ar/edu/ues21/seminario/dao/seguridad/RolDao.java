@@ -1,14 +1,19 @@
 package ar.edu.ues21.seminario.dao.seguridad;
 
-import java.util.List;
-
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 
-public interface  RolDao {
-    public Rol obtenerRolPorId(Long pId);
-    public List<Rol> obtenerRolesPorUsuarioId(Long pId);
-    public void crear(Rol uRol);
-    public void actualizar(Rol uRol);
-    public void eliminar(Rol uRol);
-    public List<Rol> listar();
+import java.util.List;
+
+public interface RolDao {
+    Rol obtenerRolPorId(Long pId);
+
+    List<Rol> obtenerRolesPorUsuarioId(Long pId);
+
+    void crear(Rol uRol);
+
+    void actualizar(Rol uRol);
+
+    void eliminar(Rol uRol);
+
+    List<Rol> listar();
 }

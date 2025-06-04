@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 
 public class AuthFactory {
     private static final Map<AuthType, Supplier<AuthMethod>> AUTH_METHODS = new EnumMap<>(AuthType.class);
+
     static {
         try {
             AUTH_METHODS.put(AuthType.MYSQL, () -> {
@@ -26,10 +27,11 @@ public class AuthFactory {
                 return new MemoriaAuth(memoriaDao);
             });
 
-        } catch ( LogicaException e) {
+        } catch (LogicaException e) {
             throw new ExceptionInInitializerError("Error al inicializar AuthFactory: " + e.getMessage());
         }
     }
+
     public static AuthMethod createAuth(AuthType type) {
         Supplier<AuthMethod> method = AUTH_METHODS.get(type);
         if (method == null) {

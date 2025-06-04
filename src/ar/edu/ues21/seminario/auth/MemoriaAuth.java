@@ -8,7 +8,8 @@ import java.util.Optional;
 
 public class MemoriaAuth implements AuthMethod {
     private final UsuarioDaoMemoriaImpl usuarioDao;
-    public MemoriaAuth(UsuarioDaoMemoriaImpl impl){
+
+    public MemoriaAuth(UsuarioDaoMemoriaImpl impl) {
         this.usuarioDao = impl;
     }
 
@@ -32,6 +33,7 @@ public class MemoriaAuth implements AuthMethod {
 
     /**
      * Método para obtener todos los usuarios (solo para desarrollo/diagnóstico)
+     *
      * @return Lista inmutable de usuarios
      */
     public List<Usuario> getUsuariosDePrueba() {

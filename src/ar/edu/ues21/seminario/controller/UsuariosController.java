@@ -23,19 +23,30 @@ public class UsuariosController implements Initializable, SubController {
     private PrincipalController principalController = null;
 
     // Componentes de la interfaz
-    @FXML private TextField nombreUsuarioField;
-    @FXML private PasswordField passwordField;
-    @FXML private ListView<Rol> viewRoles;
+    @FXML
+    private TextField nombreUsuarioField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private ListView<Rol> viewRoles;
 
-    @FXML private TableView<Usuario> tablaUsuarios;
-    @FXML private TableColumn<Usuario, Long> colIdUsuario;
-    @FXML private TableColumn<Usuario, String> colNombre;
-    @FXML private TableColumn<Usuario, String> colFechaAlta;
-    @FXML private TableColumn<Usuario, String> colFechaBaja;
-    @FXML private TableColumn<Usuario, String> colEstado;
-    @FXML private TableColumn<Usuario, Void> colAcciones;
-    @FXML private GridPane formUsuario;
-    private boolean modoEdicion = false;
+    @FXML
+    private TableView<Usuario> tablaUsuarios;
+    @FXML
+    private TableColumn<Usuario, Long> colIdUsuario;
+    @FXML
+    private TableColumn<Usuario, String> colNombre;
+    @FXML
+    private TableColumn<Usuario, String> colFechaAlta;
+    @FXML
+    private TableColumn<Usuario, String> colFechaBaja;
+    @FXML
+    private TableColumn<Usuario, String> colEstado;
+    @FXML
+    private TableColumn<Usuario, Void> colAcciones;
+    @FXML
+    private GridPane formUsuario;
+    private final boolean modoEdicion = false;
 
     private UsuarioDataModel model;
 
@@ -84,6 +95,7 @@ public class UsuariosController implements Initializable, SubController {
         colAcciones.setCellFactory(param -> new TableCell<>() {
             private final Button btnEditar = new Button("Editar");
             private final Button btnEliminar = new Button("Eliminar");
+
             {
                 btnEditar.getStyleClass().add("table-button");
 
@@ -179,7 +191,7 @@ public class UsuariosController implements Initializable, SubController {
         u2.setNombre("Ana García");
         u2.setFechaAlta(new Date());
         u2.setEstado(false);
-        u2.setListaRoles(Arrays.asList(new Rol("Guest")));
+        u2.setListaRoles(List.of(new Rol("Guest")));
 
         usuarios.add(u1);
         usuarios.add(u2);

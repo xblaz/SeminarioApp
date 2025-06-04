@@ -3,23 +3,25 @@ package ar.edu.ues21.seminario.model.base;
 import java.util.Objects;
 
 public class Telefono {
-    private Long id;
+    private Long idTelefono;
     private Integer numero;
     private Integer codArea;
     private TipoTelefono tipo;
-    public Telefono(){}
+
+    public Telefono() {
+    }
     public Telefono(Integer numero, Integer codArea, TipoTelefono tipo) {
         this.numero = numero;
         this.codArea = codArea;
         this.tipo = tipo;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdTelefono() {
+        return idTelefono;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdTelefono(Long idTelefono) {
+        this.idTelefono = idTelefono;
     }
 
     public Integer getNumero() {
@@ -49,20 +51,19 @@ public class Telefono {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Telefono)) return false;
-        Telefono telefono = (Telefono) o;
-        return Objects.equals(getId(), telefono.getId()) && Objects.equals(getNumero(), telefono.getNumero()) && Objects.equals(getCodArea(), telefono.getCodArea()) && getTipo() == telefono.getTipo();
+        if (!(o instanceof Telefono telefono)) return false;
+        return Objects.equals(getIdTelefono(), telefono.getIdTelefono()) && Objects.equals(getNumero(), telefono.getNumero()) && Objects.equals(getCodArea(), telefono.getCodArea()) && getTipo() == telefono.getTipo();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getNumero(), getCodArea(), getTipo());
+        return Objects.hash(getIdTelefono(), getNumero(), getCodArea(), getTipo());
     }
 
     @Override
     public String toString() {
         return "Telefono{" +
-                "id=" + id +
+                "id=" + idTelefono +
                 ", numero=" + numero +
                 ", codArea=" + codArea +
                 ", tipo=" + tipo +

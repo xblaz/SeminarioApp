@@ -1,5 +1,13 @@
 package ar.edu.ues21.seminario.dao.seguridad.impl;
 
+import ar.edu.ues21.seminario.dao.seguridad.RolDao;
+import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.model.seguridad.Rol;
+import ar.edu.ues21.seminario.model.seguridad.Usuario;
+import ar.edu.ues21.seminario.utils.DatabaseConexion;
+import ar.edu.ues21.seminario.utils.ResourceQueryLoader;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -10,21 +18,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-import ar.edu.ues21.seminario.auth.AuthException;
-import ar.edu.ues21.seminario.dao.seguridad.RolDao;
-import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
-import ar.edu.ues21.seminario.model.LogicaException;
-import ar.edu.ues21.seminario.model.seguridad.Rol;
-import ar.edu.ues21.seminario.model.seguridad.Usuario;
-import ar.edu.ues21.seminario.utils.DatabaseConexion;
-import ar.edu.ues21.seminario.utils.ResourceQueryLoader;
-
 public class UsuarioDaoMySQLImpl extends ResourceQueryLoader implements UsuarioDao {
 
     private final RolDao rolDao;
     private final Connection conexionDb;
 
-    public UsuarioDaoMySQLImpl(){
+    public UsuarioDaoMySQLImpl() {
         this.conexionDb = DatabaseConexion.getConnection();
         this.rolDao = new RolDaoImpl(conexionDb);
     }
@@ -90,7 +89,6 @@ public class UsuarioDaoMySQLImpl extends ResourceQueryLoader implements UsuarioD
     }
 
     /**
-     * 
      * @param password
      * @return
      */
@@ -115,5 +113,5 @@ public class UsuarioDaoMySQLImpl extends ResourceQueryLoader implements UsuarioD
         String hashCalculado = hashSHA256(passwordIngresada);
         return hashAlmacenado.equals(hashCalculado);
     }
-  
+
 }

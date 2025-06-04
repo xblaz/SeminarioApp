@@ -1,10 +1,10 @@
 package ar.edu.ues21.seminario.dao.seguridad.impl;
 
-import java.sql.Connection;
-import java.util.List;
-
 import ar.edu.ues21.seminario.dao.seguridad.PermisoDao;
 import ar.edu.ues21.seminario.model.seguridad.Permiso;
+
+import java.sql.Connection;
+import java.util.List;
 
 public class PermisoDaoImpl implements PermisoDao {
 

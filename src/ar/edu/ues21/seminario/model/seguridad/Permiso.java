@@ -1,13 +1,10 @@
 package ar.edu.ues21.seminario.model.seguridad;
 
 public class Permiso {
-
     private String descripcion;
     private String codigo;
-
     public Permiso() {
     }
-
     public Permiso(String descripcion, String codigo) {
         this.descripcion = descripcion;
         this.codigo = codigo;
@@ -15,12 +12,15 @@ public class Permiso {
     public String getDescripcion() {
         return descripcion;
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     public String getCodigo() {
         return codigo;
     }
+
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -49,10 +49,7 @@ public class Permiso {
         } else if (!descripcion.equals(other.descripcion))
             return false;
         if (codigo == null) {
-            if (other.codigo != null)
-                return false;
-        } else if (!codigo.equals(other.codigo))
-            return false;
-        return true;
+            return other.codigo == null;
+        } else return codigo.equals(other.codigo);
     }
 }

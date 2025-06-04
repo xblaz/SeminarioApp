@@ -33,21 +33,32 @@ public class UsuarioDaoMemoriaImpl implements UsuarioDao {
 
         USUARIOS_PREDEFINIDOS = Collections.unmodifiableMap(usuariosTemp);
     }
-    public UsuarioDaoMemoriaImpl() {}
+
+    public UsuarioDaoMemoriaImpl() {
+    }
+
     @Override
-    public void crear(Usuario pUsuario) throws LogicaException {}
+    public void crear(Usuario pUsuario) throws LogicaException {
+    }
+
     @Override
-    public void borrar(Usuario pUsuario) throws LogicaException {}
+    public void borrar(Usuario pUsuario) throws LogicaException {
+    }
+
     @Override
-    public void actualizar(Usuario pUsuario) throws LogicaException {}
+    public void actualizar(Usuario pUsuario) throws LogicaException {
+    }
+
     @Override
     public List<Rol> listarRolesPorUsuarioId(Long pId) throws LogicaException {
         return Collections.emptyList();
     }
+
     @Override
     public Optional<Usuario> buscarPorNombre(String pNombre) throws LogicaException {
         return Optional.ofNullable(USUARIOS_PREDEFINIDOS.get(pNombre.toLowerCase()));
     }
+
     @Override
     public boolean validarCredenciales(String pNombre, String pClave) throws LogicaException {
         return USUARIOS_PREDEFINIDOS.containsKey(pNombre.toLowerCase()) &&
