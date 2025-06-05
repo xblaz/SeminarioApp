@@ -1,6 +1,7 @@
 package ar.edu.ues21.seminario.controller;
 
-import ar.edu.ues21.seminario.auth.AuthException;
+import ar.edu.ues21.seminario.exception.AuthException;
+import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.service.AuthService;
 import ar.edu.ues21.seminario.utils.DatabaseConexion;
@@ -19,6 +20,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class LoginController {
 
@@ -89,11 +91,15 @@ public class LoginController {
             if (controller instanceof PrincipalController) {
                 ((PrincipalController) controller).setUsuario(usuario);
             }
+            // Lista de roles
+            String roles = usuario.getListaRoles().stream()
+                            .map(Rol::getNombre)
+                            .collect(Collectors.joining(", ", "(", ")"));
 
             // Configurar y mostrar la nueva escena
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Sistema de Préstamos - Usuario: " + usuario.getNombre());
+            stage.setTitle( String.format("Sistema de Préstamos - Usuario como %s - Roles: %s  ",  usuario.getNombre(), roles));
             stage.initModality(Modality.APPLICATION_MODAL);
 
             // Configurar comportamiento al cerrar

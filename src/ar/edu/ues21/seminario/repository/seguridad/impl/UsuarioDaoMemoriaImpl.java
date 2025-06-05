@@ -1,7 +1,7 @@
-package ar.edu.ues21.seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.repository.seguridad.impl;
 
-import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.repository.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.exception.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 

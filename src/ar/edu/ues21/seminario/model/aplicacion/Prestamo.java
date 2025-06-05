@@ -1,6 +1,6 @@
 package ar.edu.ues21.seminario.model.aplicacion;
 
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.exception.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
 import java.math.BigDecimal;

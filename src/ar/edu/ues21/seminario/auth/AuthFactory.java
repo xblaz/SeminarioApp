@@ -1,8 +1,9 @@
 package ar.edu.ues21.seminario.auth;
 
-import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMemoriaImpl;
-import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMySQLImpl;
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.repository.seguridad.UsuarioRepository;
+import ar.edu.ues21.seminario.repository.seguridad.impl.UsuarioDaoMemoriaImpl;
+import ar.edu.ues21.seminario.repository.seguridad.impl.UsuarioDaoMySQLImpl;
+import ar.edu.ues21.seminario.exception.LogicaException;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -15,8 +16,9 @@ public class AuthFactory {
         try {
             AUTH_METHODS.put(AuthType.MYSQL, () -> {
                 try {
-                    UsuarioDaoMySQLImpl mysqlDao = new UsuarioDaoMySQLImpl();
-                    return new MySQLAuth(mysqlDao);
+                    //UsuarioDaoMySQLImpl mysqlDao = new UsuarioDaoMySQLImpl();
+                    UsuarioRepository repository = new UsuarioRepository();
+                    return new MySQLAuth(repository);
                 } catch (LogicaException e) {
                     throw new RuntimeException("Error al crear MySQLAuthStrategy", e);
                 }
@@ -43,7 +45,7 @@ public class AuthFactory {
     // Versión alternativa que detecta automáticamente el tipo en desarrollo/producción
     public static AuthMethod createAutoConfigAuth() {
         if (isDevelopmentEnvironment()) {
-            return createAuth(AuthType.MEMORIA);
+            return createAuth(AuthType.MYSQL);
         } else {
             return createAuth(AuthType.MYSQL);
         }

@@ -1,6 +1,6 @@
 package ar.edu.ues21.seminario.service;
 
-import ar.edu.ues21.seminario.auth.AuthException;
+import ar.edu.ues21.seminario.exception.AuthException;
 import ar.edu.ues21.seminario.auth.AuthFactory;
 import ar.edu.ues21.seminario.auth.AuthMethod;
 import ar.edu.ues21.seminario.auth.AuthType;

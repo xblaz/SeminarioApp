@@ -1,7 +1,7 @@
 package ar.edu.ues21.seminario.utils;
 
 import ar.edu.ues21.seminario.config.Configuracion;
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.exception.LogicaException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

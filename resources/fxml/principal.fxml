@@ -46,7 +46,7 @@
                     <FontAwesomeIcon glyphName="FILE_EXCEL_ALT" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarConfiguracion" styleClass="side-menu-button" text="Configuración">
+            <Button fx:id="btnConfiguracion" onAction="#mostrarConfiguracion" styleClass="side-menu-button" text="Configuración">
                 <graphic>
                     <FontAwesomeIcon glyphName="COGS" size="16" />
                 </graphic>

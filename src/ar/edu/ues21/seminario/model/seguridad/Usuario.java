@@ -1,5 +1,6 @@
 package ar.edu.ues21.seminario.model.seguridad;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,18 +8,18 @@ import java.util.List;
 public class Usuario {
     private Long id;
     private String nombre;
-    private Date fechaAlta;
-    private Date fechaBaja;
+    private LocalDate fechaAlta;
+    private LocalDate fechaBaja;
     private String clave;
-    private Boolean estado;
+    private EstadoUsuario estado;
     private List<Rol> listaRoles = new ArrayList<>();
-    public Usuario() { }
+    public Usuario() {}
     public Usuario(Long id, String nombre, String clave) {
         this.id = id;
         this.nombre = nombre;
         this.clave = clave;
     }
-    public Usuario(Long id, String nombre, Date fechaAlta, Date fechaBaja, String clave, Boolean estado) {
+    public Usuario(Long id, String nombre, LocalDate fechaAlta, LocalDate fechaBaja, String clave, EstadoUsuario estado) {
         this.id = id;
         this.fechaAlta = fechaAlta;
         this.fechaBaja = fechaBaja;
@@ -32,16 +33,16 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
-    public Date getFechaAlta() {
+    public LocalDate getFechaAlta() {
         return fechaAlta;
     }
-    public void setFechaAlta(Date fechaAlta) {
+    public void setFechaAlta(LocalDate fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
-    public Date getFechaBaja() {
+    public LocalDate getFechaBaja() {
         return fechaBaja;
     }
-    public void setFechaBaja(Date fechaBaja) {
+    public void setFechaBaja(LocalDate fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
     public String getClave() {
@@ -50,10 +51,10 @@ public class Usuario {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    public Boolean getEstado() {
+    public EstadoUsuario getEstado() {
         return estado;
     }
-    public void setEstado(Boolean estado) {
+    public void setEstado(EstadoUsuario estado) {
         this.estado = estado;
     }
     public String getNombre() {

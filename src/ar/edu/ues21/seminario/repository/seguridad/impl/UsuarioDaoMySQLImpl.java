@@ -1,12 +1,12 @@
-package ar.edu.ues21.seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.repository.seguridad.impl;
 
-import ar.edu.ues21.seminario.dao.seguridad.RolDao;
-import ar.edu.ues21.seminario.dao.seguridad.UsuarioDao;
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.repository.seguridad.RolDao;
+import ar.edu.ues21.seminario.repository.seguridad.UsuarioDao;
+import ar.edu.ues21.seminario.exception.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.utils.DatabaseConexion;
-import ar.edu.ues21.seminario.utils.ResourceQueryLoader;
+import ar.edu.ues21.seminario.utils.TemplateQueryLoader;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class UsuarioDaoMySQLImpl extends ResourceQueryLoader implements UsuarioDao {
+public class UsuarioDaoMySQLImpl extends TemplateQueryLoader implements UsuarioDao {
 
     private final RolDao rolDao;
     private final Connection conexionDb;

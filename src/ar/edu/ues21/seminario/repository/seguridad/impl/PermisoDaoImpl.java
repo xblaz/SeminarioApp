@@ -1,6 +1,6 @@
-package ar.edu.ues21.seminario.dao.seguridad.impl;
+package ar.edu.ues21.seminario.repository.seguridad.impl;
 
-import ar.edu.ues21.seminario.dao.seguridad.PermisoDao;
+import ar.edu.ues21.seminario.repository.seguridad.PermisoDao;
 import ar.edu.ues21.seminario.model.seguridad.Permiso;
 
 import java.sql.Connection;

@@ -66,7 +66,7 @@ public class UsuariosController implements Initializable, SubController {
         colIdUsuario.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-        colFechaAlta.setCellValueFactory(cellData -> {
+        /*colFechaAlta.setCellValueFactory(cellData -> {
             Date fecha = cellData.getValue().getFechaAlta();
             String fechaFormateada = fecha != null ? new SimpleDateFormat("dd/MM/yyyy").format(fecha) : "";
             return new SimpleStringProperty(fechaFormateada);
@@ -76,12 +76,12 @@ public class UsuariosController implements Initializable, SubController {
             Date fecha = cellData.getValue().getFechaBaja();
             String fechaFormateada = fecha != null ? new SimpleDateFormat("dd/MM/yyyy").format(fecha) : "";
             return new SimpleStringProperty(fechaFormateada);
-        });
+        });*/
 
-        colEstado.setCellValueFactory(cellData -> {
+        /*colEstado.setCellValueFactory(cellData -> {
             Boolean estado = cellData.getValue().getEstado();
             return new SimpleStringProperty(estado != null && estado ? "Activo" : "Inactivo");
-        });
+        });*/
 
         /*colRoles.setCellValueFactory(cellData -> {
             List<Rol> roles = cellData.getValue().getListaRoles();
@@ -177,7 +177,7 @@ public class UsuariosController implements Initializable, SubController {
     }
 
     private void cargarDatosDePrueba() {
-        List<Usuario> usuarios = new ArrayList<>();
+        /*List<Usuario> usuarios = new ArrayList<>();
 
         Usuario u1 = new Usuario();
         u1.setId(1L);
@@ -196,6 +196,6 @@ public class UsuariosController implements Initializable, SubController {
         usuarios.add(u1);
         usuarios.add(u2);
 
-        tablaUsuarios.setItems(FXCollections.observableArrayList(usuarios));
+        tablaUsuarios.setItems(FXCollections.observableArrayList(usuarios));*/
     }
 }

@@ -1,7 +1,12 @@
 package ar.edu.ues21.seminario.utils;
 
+import ar.edu.ues21.seminario.exception.LogicaException;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -50,6 +55,28 @@ public class Util {
         return Optional.ofNullable(fechaString)
                 .map(d -> d.format(DateTimeFormatter.ofPattern(patron)))
                 .orElse(null);
+    }
+
+    public static String hashSHA256(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hashBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new LogicaException(String.format("Error al calcular hash SHA-256: %s", e.getMessage()));
+        }
+    }
+
+    private boolean verificarHash(String claveIngresada, String hashAlmacenado) {
+        String hashCalculado = hashSHA256(claveIngresada);
+        return hashAlmacenado.equals(hashCalculado);
     }
 
 }

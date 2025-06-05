@@ -1,6 +1,6 @@
 package ar.edu.ues21.seminario.service;
 
-import ar.edu.ues21.seminario.model.LogicaException;
+import ar.edu.ues21.seminario.exception.LogicaException;
 import ar.edu.ues21.seminario.model.cobro.MedioPago;
 import ar.edu.ues21.seminario.model.cobro.Pago;
 

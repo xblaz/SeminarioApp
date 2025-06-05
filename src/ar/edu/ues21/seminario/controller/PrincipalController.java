@@ -2,7 +2,7 @@ package ar.edu.ues21.seminario.controller;
 
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.view.SessionManager;
-import ar.edu.ues21.seminario.view.Vista;
+import ar.edu.ues21.seminario.view.Views;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,6 +43,9 @@ public class PrincipalController implements Initializable {
     private PasswordField contrasenaField;
     @FXML
     private TextField numeroCuentaField;
+
+    @FXML
+    private Button btnConfiguracion;
 
     @FXML
     private TableView<Usuario> tablaUsuarios;
@@ -97,7 +100,7 @@ public class PrincipalController implements Initializable {
      *
      * @param fxmlFile
      */
-    public void cargarFXML(Vista vista) {
+    public void cargarFXML(Views vista) {
         try {
             // Limpiar el centro antes de cargar nueva vista
             principalBorderPane.setCenter(null);
@@ -127,14 +130,18 @@ public class PrincipalController implements Initializable {
         //configurarGraficas();
         //actualizarEstadisticas();
 
-        // Ocultar formulario inicialmente
-        //formUsuario.setVisible(false);
-        //formUsuario.setManaged(false);
+        configurarPermisos();
 
         // Actualizar barra de estado
         actualizarEstado("Sistema inicializado correctamente");
     }
 
+
+    private void configurarPermisos(){
+        if (!SessionManager.getUsuario().tienePermiso("crear_usuario")){
+            btnConfiguracion.setDisable(true);
+        }
+    }
     private void configurarTabla() {
         colIdUsuario.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -393,7 +400,7 @@ public class PrincipalController implements Initializable {
     private void mostrarConfiguracion() {
         // Cambiar a la vista de configuración
         actualizarEstado("Mostrando Configuración");
-        cargarFXML(Vista.CONFIGURACION);
+        cargarFXML(Views.CONFIGURACION);
     }
 
     @FXML

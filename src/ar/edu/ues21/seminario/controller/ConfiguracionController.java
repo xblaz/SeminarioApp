@@ -1,7 +1,7 @@
 package ar.edu.ues21.seminario.controller;
 
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
-import ar.edu.ues21.seminario.view.Vista;
+import ar.edu.ues21.seminario.view.Views;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,11 +36,11 @@ public class ConfiguracionController implements SubController, Initializable {
         System.out.println("initialize...");
     }
 
-    public void cargarFXML(Vista vista) {
+    public void cargarFXML(Views VIEWS) {
         try {
             // Limpiar el centro antes de cargar nueva vista
             configuracionBorderPane.setCenter(null);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + vista.getFxmlFile()));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + VIEWS.getFxmlFile()));
             Parent root = loader.load();
             Object controller = loader.getController();
             if (controller instanceof SubController subControlador) {
@@ -58,6 +58,6 @@ public class ConfiguracionController implements SubController, Initializable {
 
     @FXML
     private void mostrarAbmUsuario() {
-        cargarFXML(Vista.USUARIO_ABM);
+        cargarFXML(Views.USUARIO_ABM);
     }
 }

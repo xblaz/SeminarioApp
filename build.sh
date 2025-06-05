@@ -26,9 +26,12 @@ echo "📁 Copiando recursos..."
 mkdir -p "$OUT_DIR/fxml"
 mkdir -p "$OUT_DIR/css"
 mkdir -p "$OUT_DIR/images"
+mkdir -p "$OUT_DIR/sql_templates"
+
 cp -r "$RESOURCES_DIR"/fxml/* "$OUT_DIR/fxml"
 cp -r "$RESOURCES_DIR"/css/* "$OUT_DIR/css"
 cp -r "$RESOURCES_DIR"/images/* "$OUT_DIR/images"
+cp -r "$RESOURCES_DIR"/sql_templates/* "$OUT_DIR/sql_templates"
 
 # --- Ejecución ---
 echo "🚀 Ejecutando aplicación en entorno $APP_ENVIRONMENT"

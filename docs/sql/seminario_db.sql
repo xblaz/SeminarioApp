@@ -4,11 +4,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON seminario_db.* TO 'seminario'@'%';
 FLUSH PRIVILEGES;
 
 INSERT INTO seminario_db.usuarios (fecha_alta,  fecha_baja, clave,  estado, nombre)
-    VALUES('2025-06-01', NULL, 'a242a85055fd0ba4221473647e21ae', 'ACTIVO', 'administrador');
+    VALUES('2025-06-01', NULL, 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ACTIVO', 'administrador');
 INSERT INTO seminario_db.usuarios (fecha_alta,  fecha_baja, clave,  estado, nombre)
-    VALUES('2025-06-01', NULL,'a242a85055fd0ba4221473647e21ae','ACTIVO','operador');
+    VALUES('2025-06-01', NULL,'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','ACTIVO','operador');
 INSERT INTO seminario_db.usuarios (fecha_alta,  fecha_baja, clave,  estado, nombre)
-    VALUES('2025-06-01', NULL, 'a242a85055fd0ba4221473647e21ae', 'ACTIVO','super');
+    VALUES('2025-06-01', NULL, 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ACTIVO','super');
 
 -- Roles
 INSERT INTO seminario_db.rol (id,descripcion) VALUES(1,'SUPER');

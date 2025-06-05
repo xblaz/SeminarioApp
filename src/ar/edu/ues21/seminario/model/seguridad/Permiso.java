@@ -1,6 +1,7 @@
 package ar.edu.ues21.seminario.model.seguridad;
 
 public class Permiso {
+    private Long idPermiso;
     private String descripcion;
     private String codigo;
     public Permiso() {
@@ -9,6 +10,8 @@ public class Permiso {
         this.descripcion = descripcion;
         this.codigo = codigo;
     }
+    public Long getIdPermiso() { return idPermiso; }
+    public void setIdPermiso(Long idPermiso) { this.idPermiso = idPermiso; }
     public String getDescripcion() {
         return descripcion;
     }

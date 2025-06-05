@@ -1,5 +1,6 @@
 package ar.edu.ues21.seminario;
 
+import ar.edu.ues21.seminario.utils.Util;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,12 +10,13 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    /*@Override
+    @Override
     public void init() throws Exception {
         // Esto se ejecuta ANTES del start(), en segundo plano
         // Inicializa la DB
         // Verifica sesión activa
-    }*/
+        System.out.println(Util.hashSHA256("123"));
+    }
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -5,7 +5,7 @@
 
 | Carpeta                   | Rol técnico           | Justificación académica                            |
 | ------------------------- | --------------------- | -------------------------------------------------- |
-| `model/`                  | Entidades del dominio | Separa la lógica de datos de la vista y control    |
+| `model/`                  | Entidades del dominio | Separa la lógica de datos de la VIEWS y control    |
 | `repository/`             | DAO / acceso a datos  | Cumple el principio de única responsabilidad (SRP) |
 | `service/`                | Lógica de negocio     | Centraliza las reglas del sistema                  |
 | `controller/`             | Controladores JavaFX  | Separa UI de la lógica del dominio (MVC)           |

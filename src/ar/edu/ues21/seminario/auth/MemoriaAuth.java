@@ -1,6 +1,7 @@
 package ar.edu.ues21.seminario.auth;
 
-import ar.edu.ues21.seminario.dao.seguridad.impl.UsuarioDaoMemoriaImpl;
+import ar.edu.ues21.seminario.exception.AuthException;
+import ar.edu.ues21.seminario.repository.seguridad.impl.UsuarioDaoMemoriaImpl;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 
 import java.util.List;
