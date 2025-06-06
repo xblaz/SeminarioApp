@@ -10,7 +10,8 @@ CREATE TABLE `usuarios` (
   `clave` varchar(150) DEFAULT NULL,
   `estado` enum('Activo','Desactivado') DEFAULT 'Desactivado',
   `nombre` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_uniq_usuarios_nombre` (`nombre`) USING BTREE
 ) ENGINE=InnoDB;
 
 CREATE TABLE `permisos` (

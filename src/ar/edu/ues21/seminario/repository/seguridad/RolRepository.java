@@ -1,16 +1,16 @@
 package ar.edu.ues21.seminario.repository.seguridad;
 
 import ar.edu.ues21.seminario.exception.RepositoryException;
-import ar.edu.ues21.seminario.model.seguridad.EstadoUsuario;
 import ar.edu.ues21.seminario.model.seguridad.Permiso;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
-import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.repository.GenericRepository;
 import ar.edu.ues21.seminario.utils.DatabaseConexion;
 import ar.edu.ues21.seminario.utils.TemplateQueryLoader;
 
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class RolRepository implements GenericRepository<Rol,Long> {
@@ -26,8 +26,8 @@ public class RolRepository implements GenericRepository<Rol,Long> {
     }
 
     @Override
-    public Rol save(Rol entity) throws RepositoryException {
-        return null;
+    public void save(Rol entity) throws RepositoryException {
+
     }
 
     @Override

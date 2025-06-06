@@ -15,9 +15,21 @@ public class Helper {
         stage.show();
     }
 
-    public static void mostrarError(String pMensaje) {
+    public static void mostrarError(String pMensaje, String tituloAlerta) {
+        if (tituloAlerta == null) {
+            tituloAlerta = "Error!";
+        }
         Alert mensaje = new Alert(Alert.AlertType.ERROR);
-        mensaje.setTitle("Error");
+        mensaje.setTitle(tituloAlerta);
+        mensaje.setHeaderText("Campo requerido");
+        mensaje.setContentText(pMensaje);
+        mensaje.showAndWait();
+    }
+
+    public static void errorValidacion(String pMensaje){
+        Alert mensaje = new Alert(Alert.AlertType.ERROR);
+        mensaje.setTitle("Error de validación");
+        mensaje.setHeaderText("Revise los campos del formulario");
         mensaje.setContentText(pMensaje);
         mensaje.showAndWait();
     }

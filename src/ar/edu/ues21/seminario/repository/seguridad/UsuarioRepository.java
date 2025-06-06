@@ -10,45 +10,92 @@ import ar.edu.ues21.seminario.utils.DatabaseConexion;
 import ar.edu.ues21.seminario.utils.TemplateQueryLoader;
 import ar.edu.ues21.seminario.utils.Util;
 
-import java.sql.*;
 import java.sql.Date;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class UsuarioRepository implements GenericRepository<Usuario, Long> {
+    private final RolRepository rolRepository;
+
     public UsuarioRepository() {
+        rolRepository = new RolRepository();
     }
 
     @Override
     public List<Usuario> findAll() throws RepositoryException {
         String sql = TemplateQueryLoader.get("usuario", "find_all");
-        List<Usuario> usuarios = new ArrayList<>();
-        Map<Long, Usuario> usuariosMap = new HashMap<>();
-        try (
-                Connection conn = DatabaseConexion.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
-            ResultSet rs = stmt.executeQuery();
+        try (Connection conn = DatabaseConexion.getConnection();
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            Map<String, Usuario> usuariosMap = new LinkedHashMap<>();
+            Map<Long, Rol> rolesMap = new HashMap<>();
+
             while (rs.next()) {
-                mapResultSetToUsuario(rs, usuariosMap);
+                // Mapear usuario
+                String nombreUsuario = rs.getString("nombre");
+                Usuario usuario = usuariosMap.computeIfAbsent(nombreUsuario, k -> {
+                    try {
+                        Usuario u = new Usuario();
+                        u.setId(rs.getLong("id"));
+                        u.setNombre(nombreUsuario);
+                        Date fechaAlta = rs.getDate("fecha_alta");
+                        Date fechaBaja = rs.getDate("fecha_baja");
+                        u.setFechaAlta(fechaAlta != null ? fechaAlta.toLocalDate() : null);
+                        u.setFechaBaja(fechaBaja != null ? fechaBaja.toLocalDate() : null);
+                        u.setEstado(EstadoUsuario.valueOfCodigo(rs.getString("estado")));
+                        return u;
+                    } catch (SQLException e) {
+                        throw new RuntimeException("Error mapeando usuario", e);
+                    }
+                });
+                // Mapear rol (si existe)
+                Long rolId = rs.getLong("rol_id");
+                if (!rs.wasNull()) {
+                    Rol rol = rolesMap.computeIfAbsent(rolId, k -> {
+                        try {
+                            Rol r = new Rol();
+                            r.setIdRol(rolId);
+                            r.setNombre(rs.getString("rol_nombre"));
+                            return r;
+                        } catch (SQLException e) {
+                            throw new RuntimeException("Error mapeando roles", e);
+                        }
+                    });
+                    // Mapear permiso (si existe)
+                    Long permisoId = rs.getLong("permiso_id");
+                    if (!rs.wasNull()) {
+                        Permiso permiso = new Permiso();
+                        permiso.setIdPermiso(permisoId);
+                        permiso.setCodigo(rs.getString("permiso_codigo"));
+                        rol.getListaPermisos().add(permiso);
+                    }
+                    // Añadir rol al usuario (sin duplicados)
+                    if (usuario.getListaRoles().stream().noneMatch(r -> r.getIdRol() == rolId)) {
+                        usuario.getListaRoles().add(rol);
+                    }
+                }
             }
-            usuarios.addAll(usuariosMap.values());
-            return usuarios;
+            return new ArrayList<>(usuariosMap.values());
         } catch (SQLException e) {
-            throw new RepositoryException("Error obteniendo todos los usuarios", e);
+            throw new RepositoryException("Error al obtener usuarios", e);
+        } catch (RuntimeException e) {
+            throw new RepositoryException("Error en mapeo", e.getCause());
         }
     }
 
     @Override
     public Optional<Usuario> findById(Long aLong) throws RepositoryException {
-        String sql = TemplateQueryLoader.get("usuario", "find_by_id");
-        Map<Long, Usuario> usuariosMap = new HashMap<>();
+        String sql = "SELECT * FROM usuarios WHERE id = ?";
         try (
             Connection conn = DatabaseConexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, aLong);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-               mapResultSetToUsuario(rs, usuariosMap);
-               return usuariosMap.values().stream().findFirst();
+               Usuario usuario = mapResultSetToUsuario(rs);
+               return Optional.of(usuario);
             }
             return Optional.empty();
         } catch (SQLException e) {
@@ -57,8 +104,49 @@ public class UsuarioRepository implements GenericRepository<Usuario, Long> {
     }
 
     @Override
-    public Usuario save(Usuario entity) throws RepositoryException {
-        return null;
+    public void save(Usuario pUsuario) throws RepositoryException {
+        try {
+            int resultado = 0;
+            if (pUsuario.getId() == null) {
+              resultado = createUsuario(pUsuario);
+            } else {
+              resultado = updateUsuario(pUsuario);
+            }
+        } catch (SQLException e) {
+            String error = e.getMessage();
+            if (e.getMessage().contains("Duplicate entry")) {
+                error = String.format("Usuario '%s' existe!", pUsuario.getNombre());
+            }
+            throw new RepositoryException(error);
+        }
+    }
+
+    private int createUsuario(Usuario pUsuario) throws SQLException {
+        String sql = TemplateQueryLoader.get("usuario", "save_insertar");
+        try (Connection conn = DatabaseConexion.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setDate(1, Date.valueOf(LocalDate.now()));
+            stmt.setString(2, pUsuario.getClave());
+            stmt.setString(3, pUsuario.getEstado().getEstado());
+            stmt.setString(4, pUsuario.getNombre());
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(String.format("Error persistiendo datos de usuario: %s", e.getMessage()));
+        }
+    }
+
+    private int updateUsuario(Usuario pUsuario) throws SQLException {
+        String sql = TemplateQueryLoader.get("usuario", "update_insertar");
+        try (Connection conn = DatabaseConexion.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            Date fechaBaja = pUsuario != null && pUsuario.getEstado().equals(EstadoUsuario.NO_ACTIVO) ? Date.valueOf(LocalDate.now()) : null;
+            stmt.setDate(1,  fechaBaja);
+            stmt.setString(2, pUsuario.getEstado().getEstado());
+            stmt.setLong(3, pUsuario.getId());
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(String.format("Error actualizando datos de usuario: %s", e.getMessage()));
+        }
     }
 
     @Override
@@ -68,17 +156,6 @@ public class UsuarioRepository implements GenericRepository<Usuario, Long> {
 
     @Override
     public List<Usuario> findByCriteria(Map<String, Object> criteria) throws RepositoryException {
-        List<Usuario> usuarios = new ArrayList<>();
-        StringBuilder sql = new StringBuilder("SELECT id, clave, nombre, estado FROM usuarios WHERE 1=1");
-        List<Object> parametros = new ArrayList<>();
-
-        for (Map.Entry<String, Object> entry : criteria.entrySet()) {
-            String campo = entry.getKey();
-            Object valor = entry.getValue();
-            sql.append(" AND ").append(campo).append(" = ?");
-            parametros.add(valor);
-        }
-
         return null;
     }
 
@@ -97,77 +174,31 @@ public class UsuarioRepository implements GenericRepository<Usuario, Long> {
 
     public Optional<Usuario> findByNombre(String pNombre) throws RepositoryException {
         String sql = "SELECT * FROM usuarios WHERE nombre = ?";
-        Map<Long, Usuario> usuariosMap = new HashMap<>();
         try (
-                Connection conn = DatabaseConexion.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, pNombre);
+            Connection conn = DatabaseConexion.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, pNombre);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                mapResultSetToUsuario(rs, usuariosMap);
-                return usuariosMap.values().stream().findFirst();
+                Usuario usuario = mapResultSetToUsuario(rs);
+                return Optional.of(usuario);
             }
             return Optional.empty();
         } catch (SQLException e) {
             throw new RepositoryException(String.format("Usuario %s no encontrado", pNombre));
         }
     }
-    private void mapResultSetToUsuario(ResultSet rs){
 
-    }
-    private void mapResultSetToUsuario(ResultSet rs, Map<Long, Usuario> usuariosMap) throws SQLException {
-        Long usuarioId = rs.getLong("id");
-
+    private Usuario mapResultSetToUsuario(ResultSet rs) throws SQLException, RepositoryException {
         // Obtener o crear el usuario
-        Usuario usuario = usuariosMap.computeIfAbsent(usuarioId, id -> {
-            Usuario u = new Usuario();
-            try {
-                u.setId(id);
-                u.setNombre(rs.getString("nombre"));
-
-                Date fechaAlta = rs.getDate("fecha_alta") != null ? rs.getDate("fecha_alta") : null;
-                Date fechaBaja = rs.getDate("fecha_baja") != null ? rs.getDate("fecha_baja") : null;
-                u.setFechaAlta(fechaAlta != null ? fechaAlta.toLocalDate() : null);
-                u.setFechaBaja(fechaBaja != null ? fechaBaja.toLocalDate() : null);
-                u.setEstado(EstadoUsuario.valueOfCodigo(rs.getString("estado")));
-                u.setListaRoles(new ArrayList<>());
-            } catch (SQLException e) {
-                throw new RuntimeException("Error al mapear usuario", e);
-            }
-            return u;
-        });
-
-        // Procesar roles y permisos solo si existen en el resultset
-        if (rs.getObject("rol_id") != null) {
-            Long rolId = rs.getLong("rol_id");
-
-            // Buscar si el rol ya existe en el usuario
-            Optional<Rol> rolExistente = usuario.getListaRoles().stream()
-                    .filter(r -> r.getIdRol().equals(rolId))
-                    .findFirst();
-
-            Rol rol = rolExistente.orElseGet(() -> {
-                Rol r = new Rol();
-                try {
-                    r.setIdRol(rolId);
-                    r.setNombre(rs.getString("rol_nombre"));
-                    r.setListaPermisos(new ArrayList<>());
-                    usuario.getListaRoles().add(r);
-                } catch (SQLException e) {
-                    throw new RuntimeException("Error al mapear rol", e);
-                }
-                return r;
-            });
-
-            // Agregar permiso si existe
-            if (rs.getObject("permiso_id") != null) {
-                Permiso permiso = new Permiso();
-                permiso.setIdPermiso(rs.getLong("permiso_id"));
-                permiso.setCodigo(rs.getString("permiso_codigo"));
-                rol.getListaPermisos().add(permiso);
-            }
-        }
+        Usuario u = new Usuario();
+        u.setNombre(rs.getString("nombre"));
+        Date fechaAlta = rs.getDate("fecha_alta") != null ? rs.getDate("fecha_alta") : null;
+        Date fechaBaja = rs.getDate("fecha_baja") != null ? rs.getDate("fecha_baja") : null;
+        u.setFechaAlta(fechaAlta != null ? fechaAlta.toLocalDate() : null);
+        u.setFechaBaja(fechaBaja != null ? fechaBaja.toLocalDate() : null);
+        u.setEstado(EstadoUsuario.valueOfCodigo(rs.getString("estado")));
+        return u;
     }
-
 
 }

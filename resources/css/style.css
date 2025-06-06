@@ -125,6 +125,24 @@
     -fx-cursor: hand;
 }
 
+
+
+.secondary-button {
+    -fx-background-color: #1A55E3;
+    -fx-text-fill: white;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #5E6EED;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.secondary-button:active {
+    -fx-background-color: #00FFAA;
+    -fx-text-fill: #1A55E3;
+    -fx-cursor: hand;
+}
 /* ToolBar subControllers */
 .tool-bar {
   /*  -fx-background-color: linear-gradient(to bottom, #f0f0f0, #d0d0d0);

@@ -52,8 +52,8 @@ public class GenericTableView<T, ID> {
     }
 
     public void setupCRUD(Consumer<T> onEdit, Consumer<T> onDelete) {
-        TableColumn<T, Void> actionsCol = new TableColumn<>("Acciones");
 
+        TableColumn<T, Void> actionsCol = new TableColumn<>("Acciones");
         actionsCol.setCellFactory(param -> new TableCell<>() {
             private final Button editBtn = new Button("Editar");
             private final Button deleteBtn = new Button("Eliminar");

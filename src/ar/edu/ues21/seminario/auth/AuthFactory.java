@@ -1,8 +1,5 @@
 package ar.edu.ues21.seminario.auth;
 
-import ar.edu.ues21.seminario.repository.seguridad.UsuarioRepository;
-import ar.edu.ues21.seminario.repository.seguridad.impl.UsuarioDaoMemoriaImpl;
-import ar.edu.ues21.seminario.repository.seguridad.impl.UsuarioDaoMySQLImpl;
 import ar.edu.ues21.seminario.exception.LogicaException;
 
 import java.util.EnumMap;
@@ -16,17 +13,10 @@ public class AuthFactory {
         try {
             AUTH_METHODS.put(AuthType.MYSQL, () -> {
                 try {
-                    //UsuarioDaoMySQLImpl mysqlDao = new UsuarioDaoMySQLImpl();
-                    UsuarioRepository repository = new UsuarioRepository();
-                    return new MySQLAuth(repository);
+                    return new MySQLAuth();
                 } catch (LogicaException e) {
                     throw new RuntimeException("Error al crear MySQLAuthStrategy", e);
                 }
-            });
-
-            AUTH_METHODS.put(AuthType.MEMORIA, () -> {
-                UsuarioDaoMemoriaImpl memoriaDao = new UsuarioDaoMemoriaImpl();
-                return new MemoriaAuth(memoriaDao);
             });
 
         } catch (LogicaException e) {

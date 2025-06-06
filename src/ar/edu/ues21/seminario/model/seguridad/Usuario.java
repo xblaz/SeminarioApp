@@ -2,7 +2,6 @@ package ar.edu.ues21.seminario.model.seguridad;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,11 +14,14 @@ public class Usuario {
     private EstadoUsuario estado;
     private List<Rol> listaRoles = new ArrayList<>();
     private String roles;
-    public Usuario() {}
+    public Usuario() {
+        this.estado = EstadoUsuario.NO_ACTIVO;
+    }
     public Usuario(Long id, String nombre, String clave) {
         this.id = id;
         this.nombre = nombre;
         this.clave = clave;
+        this.estado = EstadoUsuario.NO_ACTIVO;
     }
     public Usuario(Long id, String nombre, LocalDate fechaAlta, LocalDate fechaBaja, String clave, EstadoUsuario estado) {
         this.id = id;
@@ -86,7 +88,7 @@ public class Usuario {
         if (this.listaRoles != null && !this.listaRoles.isEmpty()) {
             roles = this.listaRoles.stream()
                     .map(Rol::getNombre)
-                    .collect(Collectors.joining(", ", "(", ")"));
+                    .collect(Collectors.joining(", ", "", ""));
         }
         return roles;
     }
