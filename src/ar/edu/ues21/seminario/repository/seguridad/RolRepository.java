@@ -69,14 +69,11 @@ public class RolRepository implements GenericRepository<Rol,Long> {
                 rol.setListaPermisos(new ArrayList<>());
                 return rol;
             });
-
             Permiso permiso = new Permiso();
             permiso.setIdPermiso(rs.getLong("permiso_id"));
             permiso.setCodigo(rs.getString("permiso_codigo"));
-
             r.getListaPermisos().add(permiso);
         }
-
         return new ArrayList<>(rolesMap.values());
     }
 }

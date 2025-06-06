@@ -37,7 +37,7 @@ public class MySQLAuth implements AuthMethod {
         } catch (AuthException e) {
             throw new AuthException(String.format("%s", e.getMessage()));
         } catch (RepositoryException e) {
-            throw new RuntimeException(e);
+            throw new AuthException(String.format("%s", e.getMessage()));
         }
     }
 }

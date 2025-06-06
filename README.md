@@ -1,4 +1,4 @@
-# Licenciatura en Informática - Universidad Siglo 21
+# Universidad Siglo 21 - Licenciatura en Informática 
 ## Materia Seminario de Práctica de Informática
 ## Sistema de Gestión de Préstamos (SiGeP)
 ## 📂 Estructura del Proyecto

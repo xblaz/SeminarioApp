@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Usuario {
     private Long id;
@@ -13,6 +14,7 @@ public class Usuario {
     private String clave;
     private EstadoUsuario estado;
     private List<Rol> listaRoles = new ArrayList<>();
+    private String roles;
     public Usuario() {}
     public Usuario(Long id, String nombre, String clave) {
         this.id = id;
@@ -77,6 +79,16 @@ public class Usuario {
             }
         }
         return false;
+    }
+
+    public String getRoles() {
+        roles = "Sin Roles";
+        if (this.listaRoles != null && !this.listaRoles.isEmpty()) {
+            roles = this.listaRoles.stream()
+                    .map(Rol::getNombre)
+                    .collect(Collectors.joining(", ", "(", ")"));
+        }
+        return roles;
     }
 
     @Override

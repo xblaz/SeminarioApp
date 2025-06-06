@@ -32,7 +32,7 @@
                         <Font size="12.0" />
                     </font></Label>
                 <Region HBox.hgrow="ALWAYS" />
-                <Button onAction="#nuevoUsuario" styleClass="action-button, primary-button" text="Nuevo Usuario">
+                <Button onAction="#agregarNuevoUsuario" styleClass="action-button, primary-button" text="Nuevo Usuario">
                     <graphic>
                         <FontAwesomeIcon glyphName="PLUS" size="12" />
                     </graphic>
@@ -90,24 +90,7 @@
             </GridPane>
 
             <!-- Tabla de usuarios -->
-            <VBox spacing="10" VBox.vgrow="ALWAYS">
-                <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Label styleClass="table-title" text="Listado de Usuarios" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <ComboBox fx:id="filtroUsuarios" promptText="Filtrar por..." />
-                </HBox>
-
-                <TableView fx:id="tablaUsuarios" styleClass="data-table" VBox.vgrow="ALWAYS">
-                    <columns>
-                        <TableColumn fx:id="colIdUsuario" prefWidth="39.0" resizable="false" text="ID" />
-                        <TableColumn fx:id="colNombre" prefWidth="195.0" text="Nombre de usuario" />
-                        <TableColumn fx:id="colFechaAlta" minWidth="0.0" prefWidth="113.0" text="Fecha de alta" />
-                        <TableColumn fx:id="colFechaBaja" prefWidth="163.0" text="Fecha de baja" />
-                        <TableColumn fx:id="colEstado" prefWidth="116.0" text="Estado" />
-                        <TableColumn fx:id="colAcciones" minWidth="8.0" prefWidth="127.0" resizable="false" text="Acciones" />
-                    </columns>
-                </TableView>
-            </VBox>
+            <VBox fx:id="tableContainer" spacing="10" VBox.vgrow="ALWAYS"/>
         </VBox>
     </center>
 </BorderPane>
