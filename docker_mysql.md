@@ -11,11 +11,17 @@ Ejecutá el siguiente comando en tu terminal para crear un contenedor llamado `m
 ```bash
 docker run --name mysql_ues21 -e MYSQL_ROOT_PASSWORD=951951 -d mysql:latest
 ```
-
 - `--name mysql_ues21`: asigna el nombre al contenedor.
 - `-e MYSQL_ROOT_PASSWORD=951951`: define la contraseña del usuario `root`.
 - `-d mysql:latest`: usa la última imagen oficial de MySQL en segundo plano.
 
+### Obtener la ip el contenedor MySQL
+
+Ejecutá el siguiente comando para obtener la ip asignada al contendor llamado `mysql_ues21`
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql_ues21
+```
 ---
 
 ## ✅ Paso 2: Ingresar al contenedor

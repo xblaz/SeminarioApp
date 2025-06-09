@@ -4,7 +4,6 @@ import ar.edu.ues21.seminario.exception.RepositoryException;
 import ar.edu.ues21.seminario.model.seguridad.Permiso;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.repository.GenericRepository;
-import ar.edu.ues21.seminario.utils.DatabaseConexion;
 import ar.edu.ues21.seminario.utils.TemplateQueryLoader;
 
 import java.sql.Connection;
@@ -14,15 +13,46 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class RolRepository implements GenericRepository<Rol,Long> {
-    public RolRepository() {
+
+    private final Connection conexion;
+    public RolRepository(Connection conn) {
+        this.conexion = conn;
     }
     @Override
     public List<Rol> findAll() throws RepositoryException {
-        return null;
+        String sql = TemplateQueryLoader.get("rol", "find_all");
+        List<Rol> roles = new ArrayList<Rol>();
+        try (
+
+                PreparedStatement stmt = this.conexion.prepareStatement(sql)) {
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Rol unRol = new Rol();
+                    unRol.setDescripcion(rs.getString("descripcion"));
+                    unRol.setIdRol(rs.getLong("id"));
+                    roles.add(unRol);
+                }
+                return roles;
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException(String.format("Buscando roles %s", e.getMessage()));
+        }
     }
     @Override
     public Optional<Rol> findById(Long aLong) throws RepositoryException {
-        return Optional.empty();
+        String sql = TemplateQueryLoader.get("rol", "find_by_id");
+        try (
+
+                PreparedStatement stmt = this.conexion.prepareStatement(sql)) {
+            try (ResultSet rs = stmt.executeQuery()) {
+                Rol unRol = new Rol();
+                unRol.setDescripcion(rs.getString("descripcion"));
+                unRol.setIdRol(rs.getLong("id"));
+                return Optional.of(unRol);
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException(String.format("Buscando roles"));
+        }
     }
 
     @Override
@@ -43,8 +73,8 @@ public class RolRepository implements GenericRepository<Rol,Long> {
     public List<Rol> findByUsuario(String pNombre) throws RepositoryException {
         String sql = TemplateQueryLoader.get("rol", "roles_por_usuario");
         try (
-            Connection conn = DatabaseConexion.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+                PreparedStatement stmt = this.conexion.prepareStatement(sql)) {
             stmt.setString(1, pNombre);
             try (ResultSet rs = stmt.executeQuery()) {
                 return mapResultSetToRoles(rs);
@@ -61,7 +91,7 @@ public class RolRepository implements GenericRepository<Rol,Long> {
             Rol r = rolesMap.computeIfAbsent(rolId, id -> {
                 Rol rol = new Rol();
                 try {
-                    rol.setNombre(rs.getString("rol_nombre"));
+                    rol.setDescripcion(rs.getString("rol_descripcion"));
                     rol.setIdRol(rs.getLong("rol_id"));
                 } catch (SQLException e) {
                     throw new RuntimeException("Error al mapear rol", e);
@@ -76,4 +106,5 @@ public class RolRepository implements GenericRepository<Rol,Long> {
         }
         return new ArrayList<>(rolesMap.values());
     }
+
 }

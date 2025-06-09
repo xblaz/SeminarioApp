@@ -30,7 +30,7 @@ public class SessionManager {
     public static boolean tieneRol(String rol) {
         return usuario != null &&
                 usuario.getListaRoles().stream()
-                        .anyMatch(r -> r.getNombre().equalsIgnoreCase(rol));
+                        .anyMatch(r -> r.getDescripcion().equalsIgnoreCase(rol));
     }
 
     public static boolean tienePermiso(String permiso) {

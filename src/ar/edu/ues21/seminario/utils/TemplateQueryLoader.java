@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class TemplateQueryLoader {
     private static final Map<String, Map<String, String>> cache = new HashMap<>();
@@ -31,7 +30,7 @@ public class TemplateQueryLoader {
 
     private static Map<String, String> cargarArchivo(String archivo) {
         Map<String, String> queries = new HashMap<>();
-
+        // Busca el archivo en el directorio resources del proyecto
         try (InputStream is = TemplateQueryLoader.class.getClassLoader().getResourceAsStream(BASE_PATH + archivo + ".sql")) {
             if (is == null) {
                 throw new RuntimeException("No se encontró el archivo: " + archivo + ".sql");

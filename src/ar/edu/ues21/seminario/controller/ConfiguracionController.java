@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConfiguracionController implements SubController, Initializable {
+public class ConfiguracionController implements Initializable {
 
     @FXML
     private BorderPane configuracionBorderPane;
@@ -20,20 +20,8 @@ public class ConfiguracionController implements SubController, Initializable {
     private PrincipalController principalController = null;
 
     @Override
-    public void setPrincipalController(PrincipalController principalController) {
-        System.out.println("Seteando Main Controller...");
-        this.principalController = principalController;
-    }
-
-    @Override
-    public void setUsuario(Usuario usuario) {
-        System.out.println("Seteando Usuario...");
-        this.usuarioActual = usuario;
-    }
-
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initialize...");
+
     }
 
     public void cargarFXML(Views VIEWS) {
@@ -42,12 +30,6 @@ public class ConfiguracionController implements SubController, Initializable {
             configuracionBorderPane.setCenter(null);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + VIEWS.getFxmlFile()));
             Parent root = loader.load();
-            Object controller = loader.getController();
-            if (controller instanceof SubController subControlador) {
-                System.out.println("Entrando...");
-                //subControlador.setPrincipalController(this);
-                subControlador.setUsuario(usuarioActual);
-            }
             configuracionBorderPane.setCenter(root);
         } catch (IOException e) {
             e.printStackTrace();

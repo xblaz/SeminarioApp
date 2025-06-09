@@ -3,11 +3,11 @@ package ar.edu.ues21.seminario.utils;
 import ar.edu.ues21.seminario.exception.LogicaException;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.math.RoundingMode;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -57,6 +57,12 @@ public class Util {
                 .orElse(null);
     }
 
+    /**
+     * Codifica un string a sha256
+     * Se utiliza para codificar las contraseñas de usuarios
+     * @param password
+     * @return String codificado
+     */
     public static String hashSHA256(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -73,10 +79,4 @@ public class Util {
             throw new LogicaException(String.format("Error al calcular hash SHA-256: %s", e.getMessage()));
         }
     }
-
-    private boolean verificarHash(String claveIngresada, String hashAlmacenado) {
-        String hashCalculado = hashSHA256(claveIngresada);
-        return hashAlmacenado.equals(hashCalculado);
-    }
-
 }

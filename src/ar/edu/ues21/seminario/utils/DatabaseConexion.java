@@ -5,30 +5,60 @@ import ar.edu.ues21.seminario.exception.LogicaException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
-public class DatabaseConexion {
+public class DatabaseConexion implements AutoCloseable {
 
-    private static Connection connexion = null;
+    private final Connection conexion;
 
-    public synchronized static Connection getConnection() {
+    public DatabaseConexion() {
         try {
-            if (connexion == null || connexion.isClosed()) {
-                connexion = DriverManager.getConnection(Configuracion.URL, Configuracion.USERNAME, Configuracion.PASSWORD);
-            }
-        } catch (SQLException e) {
-            throw new LogicaException(String.format("Error conectado a la base de datos: %s", e.getMessage()));
+            this.conexion = DriverManager.getConnection(
+                    Configuracion.URL,
+                    Configuracion.USERNAME,
+                    Configuracion.PASSWORD
+            );
+        } catch (Exception e) {
+            throw new LogicaException("Error al obtener conexión: " + e.getMessage());
         }
-        return connexion;
+    }
+    public Connection getConexion() {
+        return conexion;
     }
 
-    public static void cerrarConexion() {
+    public void beginTransaction() {
         try {
-            if (connexion != null && !connexion.isClosed()) {
-                connexion.close();
+            conexion.setAutoCommit(false);
+        } catch (Exception e) {
+            throw new LogicaException("Error al iniciar transacción: " + e.getMessage());
+        }
+    }
+
+    public void commit() {
+        try {
+            conexion.commit();
+            conexion.setAutoCommit(true);
+        } catch (Exception e) {
+            throw new LogicaException("Error al confirmar transacción: " + e.getMessage());
+        }
+    }
+
+    public void rollback() {
+        try {
+            conexion.rollback();
+            conexion.setAutoCommit(true);
+        } catch (Exception e) {
+            throw new LogicaException("Error al hacer rollback: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void close() {
+        try {
+            if (!conexion.isClosed()) {
+                conexion.close();
             }
-        } catch (SQLException e) {
-            throw new LogicaException(String.format("Error cerrando conexión: %s", e.getMessage()));
+        } catch (Exception e) {
+            throw new LogicaException("Error al cerrar conexión: " + e.getMessage());
         }
     }
 }

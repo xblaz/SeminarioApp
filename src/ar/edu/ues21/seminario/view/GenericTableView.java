@@ -1,6 +1,6 @@
 package ar.edu.ues21.seminario.view;
 
-import ar.edu.ues21.seminario.repository.GenericRepository;
+import ar.edu.ues21.seminario.config.Configuracion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -8,20 +8,28 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
+import javafx.util.StringConverter;
 
+import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
-public class GenericTableView<T, ID> {
-    private TableView<T> tableView;
+public class GenericTableView<T> {
     private Class<T> type;
-    private GenericRepository<T, ID> repository;
+    private final TableView<T> tableView;
+    private final Supplier<List<T>> dataSupplier;
+    private final ObservableList<T> observableList = FXCollections.observableArrayList();
 
-    public GenericTableView(Class<T> type, GenericRepository<T, ID> repository) {
-        this.type = type;
-        this.repository = repository;
+    public GenericTableView(Class<T> type, Supplier<List<T>> dataSupplier) {
         this.tableView = new TableView<>();
+        this.dataSupplier = dataSupplier;
+        this.type = type;
+        this.tableView.setItems(observableList);
     }
 
     /**
@@ -35,17 +43,57 @@ public class GenericTableView<T, ID> {
         }
         tableView.getColumns().clear();
         for (int i = 0; i < columnNames.length; i++) {
-            TableColumn<T, ?> column = new TableColumn<>(columnNames[i]);
-            column.setCellValueFactory(new PropertyValueFactory<>(propertyNames[i]));
+
+            String columnName = columnNames[i];
+            String propertyName = propertyNames[i];
+
+            TableColumn<T, Object> column = new TableColumn<>(columnName);
+            column.setCellValueFactory(new PropertyValueFactory<>(propertyName));
+            try {
+                Field field = type.getDeclaredField(propertyName);
+                Class<?> fieldType = field.getType();
+
+                if (fieldType == LocalDate.class) {
+                    column.setCellFactory(col -> new TextFieldTableCell<>(new StringConverter<>() {
+                        private final DateTimeFormatter formatter = Configuracion.DEFAULT_FORMATO_FECHA;
+                        @Override
+                        public String toString(Object object) {
+                            return object instanceof LocalDate ? formatter.format((LocalDate) object) : "";
+                        }
+                        @Override
+                        public LocalDate fromString(String string) {
+                            return LocalDate.parse(string, formatter);
+                        }
+                    }));
+                } else if (fieldType.isEnum()) {
+                    column.setCellFactory(col -> new TextFieldTableCell<>(new StringConverter<>() {
+                        @Override
+                        public String toString(Object object) {
+                            if (object == null) return "";
+                            try {
+                                return (String) object.getClass().getMethod("getDescripcion").invoke(object);
+                            } catch (Exception e) {
+                                return object.toString();
+                            }
+                        }
+                        @Override
+                        public Object fromString(String string) {
+                            return null; // No soporta edición desde la tabla
+                        }
+                    }));
+                }
+            } catch (Exception e) {
+                // Campo no encontrado, se deja sin celda custom
+            }
+
             tableView.getColumns().add(column);
         }
     }
 
     public void loadData() {
         try {
-            List<T> items = repository.findAll();
-            ObservableList<T> observableList = FXCollections.observableArrayList(items);
-            tableView.setItems(observableList);
+            List<T> items = dataSupplier.get();
+            observableList.setAll(items);
         } catch (Exception e) {
             // Manejo de errores
         }

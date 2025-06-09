@@ -15,9 +15,9 @@
    <left>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="228.0" styleClass="sidebar" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutY="141.0" prefHeight="16.0" prefWidth="251.0" text="Gestión de Prestamos" textFill="#fcfcfc">
+            <Label fx:id="appTitulo" alignment="CENTER" layoutY="141.0" prefHeight="16.0" prefWidth="251.0" text="Gestión de Prestamos" textFill="#fcfcfc">
                <font>
-                  <Font name="NimbusSans-Bold" size="18.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
             <Label alignment="CENTER" layoutX="4.0" layoutY="363.0" prefHeight="14.0" prefWidth="243.0" text="© 2025 - Seminario de Practica Informatica" textFill="#fcfcfc">
@@ -26,7 +26,7 @@
                </font>
             </Label>
             <FontAwesomeIcon fill="WHITE" glyphName="EXCHANGE" layoutX="106.0" layoutY="115.0" size="3em" />
-            <Label alignment="CENTER" layoutX="1.0" layoutY="164.0" prefHeight="14.0" prefWidth="249.0" text="Software versión 1.0.0" textFill="WHITE">
+            <Label fx:id="appVersion" alignment="CENTER" layoutX="1.0" layoutY="164.0" prefHeight="14.0" prefWidth="249.0" text="Software versión 1.0.0" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>

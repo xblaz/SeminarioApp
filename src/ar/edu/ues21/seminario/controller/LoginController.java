@@ -1,10 +1,12 @@
 package ar.edu.ues21.seminario.controller;
 
+import ar.edu.ues21.seminario.config.Configuracion;
 import ar.edu.ues21.seminario.exception.AuthException;
+import ar.edu.ues21.seminario.exception.LogicaException;
 import ar.edu.ues21.seminario.model.seguridad.Rol;
 import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.service.AuthService;
-import ar.edu.ues21.seminario.utils.DatabaseConexion;
+import ar.edu.ues21.seminario.utils.Log;
 import ar.edu.ues21.seminario.view.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -12,10 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,6 +23,10 @@ import java.util.stream.Collectors;
 
 public class LoginController {
 
+    @FXML
+    private Label appTitulo;
+    @FXML
+    private Label appVersion;
     @FXML
     private TextField txtUsuario;
     @FXML
@@ -40,19 +43,22 @@ public class LoginController {
         String javafxVersion = System.getProperty("javafx.version");
         authService = new AuthService();
         lblError.setVisible(false);
+        appTitulo.setText(Configuracion.APP_NAME);
+        appVersion.setText(Configuracion.APP_VERSION);
     }
 
     @FXML
     public void onLogin() {
         try {
             Usuario usuario = authService.login(txtUsuario.getText(), txtClave.getText());
-            System.out.println("Logueado!");
+            Log.info(String.format("Usuario %s logueado correctamente", usuario.getNombre()));
             SessionManager.setUsuario(usuario);
             if (usuario != null) {
                 cargarVistaPrincipal(usuario);
             }
-        } catch (AuthException e) {
+        } catch (LogicaException | AuthException e) {
             mostrarError(e.getMessage());
+            Log.error(e.getMessage());
         }
     }
 
@@ -64,48 +70,36 @@ public class LoginController {
 
     private void mostrarError(String mensaje) {
         lblError.setText(mensaje);
+        lblError.setMaxWidth(Double.MAX_VALUE);
+        lblError.setWrapText(true);
         lblError.setVisible(true);
+        Tooltip tooltip = new Tooltip(mensaje);
+        Tooltip.install(lblError, tooltip);
     }
 
     private void cargarVistaPrincipal(Usuario usuario) {
         try {
             // Cerrar la ventana de login actual
             Stage loginStage = (Stage) txtUsuario.getScene().getWindow();
-
-
             FXMLLoader loader;
-            /*if (usuario.tieneRol("ADMINISTRADOR")) {
-                loader = new FXMLLoader(getClass().getResource("/vistas/AdminDashboard.fxml"));
-            } else if (usuario.tieneRol("OPERADOR")) {
-                loader = new FXMLLoader(getClass().getResource("/vistas/OperadorDashboard.fxml"));
-            } else {
-                loader = new FXMLLoader(getClass().getResource("/vistas/UserDashboard.fxml"));
-            }*/
             loader = new FXMLLoader(getClass().getResource("/fxml/principal.fxml"));
-
             // Cargar la nueva escena
             Parent root = loader.load();
 
-            // Pasar el usuario al controlador de la nueva vista
-            Object controller = loader.getController();
-            if (controller instanceof PrincipalController) {
-                ((PrincipalController) controller).setUsuario(usuario);
-            }
             // Lista de roles
             String roles = usuario.getListaRoles().stream()
-                            .map(Rol::getNombre)
+                            .map(Rol::getDescripcion)
                             .collect(Collectors.joining(", ", "(", ")"));
 
             // Configurar y mostrar la nueva escena
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle( String.format("Sistema de Préstamos - Usuario como %s - Roles: %s  ",  usuario.getNombre(), roles));
+            stage.setTitle( String.format("%s - Usuario como %s - Roles: %s  ", Configuracion.APP_NAME, usuario.getNombre(), roles));
             stage.initModality(Modality.APPLICATION_MODAL);
 
             // Configurar comportamiento al cerrar
             stage.setOnCloseRequest(e -> {
                 SessionManager.cerrarSesion();
-                DatabaseConexion.cerrarConexion();
                 Platform.exit();
             });
 

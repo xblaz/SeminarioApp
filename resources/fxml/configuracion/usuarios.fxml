@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="798.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.edu.ues21.seminario.controller.UsuariosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.edu.ues21.seminario.controller.UsuariosController">
     <top>
         <VBox spacing="10">
             <padding>
@@ -44,48 +44,7 @@
                 <Insets bottom="20" left="20" right="20" top="0" />
             </padding>
 
-            <!-- Formulario de usuario -->
-            <GridPane fx:id="formUsuario" hgap="15" styleClass="form-container" vgap="15">
 
-                <columnConstraints>
-                    <ColumnConstraints percentWidth="50.0" />
-                    <ColumnConstraints percentWidth="50.0" />
-                </columnConstraints>
-
-                <VBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                    <Label styleClass="form-section-title" text="Información de acceso" />
-
-                    <Label styleClass="field-label" text="Nombre de Usuario" />
-                    <TextField fx:id="nombreUsuarioField" styleClass="form-field" />
-
-                    <Label styleClass="field-label" text="Contraseña" />
-                    <PasswordField fx:id="passwordField" styleClass="form-field" />
-                </VBox>
-
-                <HBox alignment="BOTTOM_LEFT" spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
-
-                    <Button fx:id="btnGuardar" onAction="#guardarUsuario" styleClass="action-button, primary-button" text="Guardar">
-                  <graphic>
-                     <FontAwesomeIcon glyphName="CHECK" />
-                  </graphic></Button>
-                    <Button onAction="#cancelarEdicion" styleClass="action-button" text="Cancelar">
-                        <graphic>
-                            <FontAwesomeIcon glyphName="TIMES" />
-                        </graphic></Button>
-                </HBox>
-
-                <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
-               <children>
-                  <Label styleClass="form-section-title" text="Roles" />
-                  <Label styleClass="field-label" text="Asignar roles" />
-                  <ListView fx:id="viewRoles" prefHeight="115.0" prefWidth="371.0" styleClass="form-field" />
-               </children>
-                </VBox>
-                <rowConstraints>
-                    <RowConstraints />
-                    <RowConstraints />
-                </rowConstraints>
-            </GridPane>
 
             <!-- Tabla de usuarios -->
             <VBox fx:id="tableContainer" spacing="10" VBox.vgrow="ALWAYS" />

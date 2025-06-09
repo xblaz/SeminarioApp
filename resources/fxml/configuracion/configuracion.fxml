@@ -17,7 +17,7 @@
                         <FontAwesomeIcon glyphName="USER" />
                      </graphic>
                   </MenuItem>
-                <MenuItem mnemonicParsing="false" text="Asignar permisos" />
+
               </items>
                <graphic>
                   <FontAwesomeIcon glyphName="LOCK" />

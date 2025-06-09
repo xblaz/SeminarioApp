@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Rol {
     private Long idRol;
-    private String nombre;
+    private String descripcion;
     private List<Permiso> listaPermisos = new ArrayList<>();
     public Rol() {}
-    public Rol(Long idRol, String nombre) {
+    public Rol(Long idRol, String descripcion) {
         this.idRol = idRol;
-        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.listaPermisos = new ArrayList<>();
     }
     public Long getIdRol() {
@@ -19,11 +19,11 @@ public class Rol {
     public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     public List<Permiso> getListaPermisos() {
         return listaPermisos;
@@ -37,7 +37,7 @@ public class Rol {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((idRol == null) ? 0 : idRol.hashCode());
-        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+        result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
         return result;
     }
 
@@ -55,9 +55,9 @@ public class Rol {
                 return false;
         } else if (!idRol.equals(other.idRol))
             return false;
-        if (nombre == null) {
-            return other.nombre == null;
-        } else return nombre.equals(other.nombre);
+        if (descripcion == null) {
+            return other.descripcion == null;
+        } else return descripcion.equals(other.descripcion);
     }
 
 }

@@ -1,28 +1,32 @@
-#!/bin/bash
+# Importar configuración
+source ./config.sh
 
-# Ruta al SDK de JavaFX
-JAVAFX_SDK="/sda2/proyecto_seminario/javafx-sdk-17.0.15"
+echo "🗑️ Limpiando compilados previos..."
+rm -rf $OUT_DIR
+mkdir -p $OUT_DIR
 
-# Carpeta de salida
-OUTPUT_DIR="out/production/SeminarioApp"
-
-# Carpeta de fuentes
-SRC_DIR="src"
-
-# Crear carpeta de salida si no existe
-mkdir -p "$OUTPUT_DIR"
-
-# Compilar los archivos .java
+# --- Compilación ---
+echo "🛠️ Compilando..."
+mkdir -p "$OUT_DIR"
 find "$SRC_DIR" -name "*.java" > sources.txt
 
-javac \
+"$JAVA_HOME/bin/javac" \
   --module-path "$JAVAFX_SDK/lib" \
   --add-modules javafx.controls,javafx.fxml \
-  -d "$OUTPUT_DIR" \
+  -d "$OUT_DIR" \
   @sources.txt
 
-# Limpieza
 rm sources.txt
-
 echo "✅ Compilación completada."
 
+# --- Copiar recursos ---
+echo "📁 Copiando recursos..."
+mkdir -p "$OUT_DIR/fxml"
+mkdir -p "$OUT_DIR/css"
+mkdir -p "$OUT_DIR/images"
+mkdir -p "$OUT_DIR/sql_templates"
+
+cp -r "$RESOURCES_DIR"/fxml/* "$OUT_DIR/fxml"
+cp -r "$RESOURCES_DIR"/css/* "$OUT_DIR/css"
+cp -r "$RESOURCES_DIR"/images/* "$OUT_DIR/images"
+cp -r "$RESOURCES_DIR"/sql_templates/* "$OUT_DIR/sql_templates"

@@ -14,14 +14,22 @@ public class Usuario {
     private EstadoUsuario estado;
     private List<Rol> listaRoles = new ArrayList<>();
     private String roles;
+
     public Usuario() {
         this.estado = EstadoUsuario.NO_ACTIVO;
     }
+
     public Usuario(Long id, String nombre, String clave) {
         this.id = id;
         this.nombre = nombre;
         this.clave = clave;
         this.estado = EstadoUsuario.NO_ACTIVO;
+    }
+    public Usuario(String nombre, String clave, EstadoUsuario estado, List<Rol> listaRoles) {
+        this.clave = clave;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.listaRoles = listaRoles;
     }
     public Usuario(Long id, String nombre, LocalDate fechaAlta, LocalDate fechaBaja, String clave, EstadoUsuario estado) {
         this.id = id;
@@ -87,7 +95,7 @@ public class Usuario {
         roles = "Sin Roles";
         if (this.listaRoles != null && !this.listaRoles.isEmpty()) {
             roles = this.listaRoles.stream()
-                    .map(Rol::getNombre)
+                    .map(Rol::getDescripcion)
                     .collect(Collectors.joining(", ", "", ""));
         }
         return roles;

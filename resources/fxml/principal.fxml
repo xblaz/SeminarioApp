@@ -19,29 +19,29 @@
                 <Insets bottom="10" left="20" right="20" top="10" />
             </padding>
             <FontAwesomeIcon glyphName="EXCHANGE" size="30" styleClass="logo-icon" />
-            <Label styleClass="app-title" text="Gestión de Prestamos" />
+            <Label fx:id="appTitulo" styleClass="app-title" text="Gestión de Prestamos" />
         </HBox>
     </top>
 
     <!-- Menú lateral -->
     <left>
         <VBox prefWidth="200" styleClass="side-menu">
-            <Button onAction="#mostrarDashboard" styleClass="side-menu-button" text="Principal">
+            <Button styleClass="side-menu-button" text="Principal">
                 <graphic>
                     <FontAwesomeIcon glyphName="DASHBOARD" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarUsuarios" styleClass="side-menu-button" text="Clientes">
+            <Button styleClass="side-menu-button" text="Clientes">
                 <graphic>
                     <FontAwesomeIcon glyphName="USERS" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarTransacciones" styleClass="side-menu-button" text="Prestamos">
+            <Button styleClass="side-menu-button" text="Prestamos">
                 <graphic>
                     <FontAwesomeIcon glyphName="CALCULATOR" size="16" />
                 </graphic>
             </Button>
-            <Button onAction="#mostrarEstadisticas" styleClass="side-menu-button" text="Reportes">
+            <Button styleClass="side-menu-button" text="Reportes">
                 <graphic>
                     <FontAwesomeIcon glyphName="FILE_EXCEL_ALT" size="16" />
                 </graphic>

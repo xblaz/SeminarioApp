@@ -1,6 +1,8 @@
 package ar.edu.ues21.seminario.auth;
 
 import ar.edu.ues21.seminario.exception.LogicaException;
+import ar.edu.ues21.seminario.service.UsuarioService;
+import ar.edu.ues21.seminario.utils.AppContext;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -13,7 +15,8 @@ public class AuthFactory {
         try {
             AUTH_METHODS.put(AuthType.MYSQL, () -> {
                 try {
-                    return new MySQLAuth();
+                    UsuarioService service = AppContext.getUsuarioService();
+                    return new MySQLAuth(service);
                 } catch (LogicaException e) {
                     throw new RuntimeException("Error al crear MySQLAuthStrategy", e);
                 }
