@@ -8,6 +8,7 @@ import ar.edu.ues21.seminario.model.seguridad.Usuario;
 import ar.edu.ues21.seminario.service.AuthService;
 import ar.edu.ues21.seminario.utils.Log;
 import ar.edu.ues21.seminario.view.SessionManager;
+import ar.edu.ues21.seminario.view.Views;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,7 +83,7 @@ public class LoginController {
             // Cerrar la ventana de login actual
             Stage loginStage = (Stage) txtUsuario.getScene().getWindow();
             FXMLLoader loader;
-            loader = new FXMLLoader(getClass().getResource("/fxml/principal.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/" + Views.PRINCIPAL.getFxmlFile()));
             // Cargar la nueva escena
             Parent root = loader.load();
 

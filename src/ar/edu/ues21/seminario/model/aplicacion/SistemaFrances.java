@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaFrances extends EsquemaFinanciacion {
-    public SistemaFrances(String descripcion, Double tasaInteres, Integer cantidadCuotas, Boolean requiereGarante, EstadoEsquema estado) {
-        super(descripcion, tasaInteres, cantidadCuotas, requiereGarante, estado);
+    public SistemaFrances() {
     }
+    public SistemaFrances(Long idEsquema, String descripcion, Double tasaInteres, Integer cantidadCuotas, Boolean requiereGarante, LocalDate fechaCreacion, EstadoEsquema estado, TipoEsquema tipoEsquema) {
+        super(idEsquema, descripcion, tasaInteres, cantidadCuotas, requiereGarante, fechaCreacion, estado, tipoEsquema);
+        this.setTipoEsquema(TipoEsquema.FRANCES);
+    }
+
     @Override
     public BigDecimal calcularCuota(BigDecimal montoAFinanciar, Integer periodo) {
         // Validaciones básicas

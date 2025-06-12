@@ -42,4 +42,8 @@ public class ConfiguracionController implements Initializable {
     private void mostrarAbmUsuario() {
         cargarFXML(Views.USUARIO_ABM);
     }
+    @FXML
+    private void mostrarAbmEsquemaFinanciacion() {
+        cargarFXML(Views.ESQUEMA_FINANCIACION_ABM);
+    }
 }

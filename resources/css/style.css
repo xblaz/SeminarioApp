@@ -154,21 +154,22 @@
 
 /* Estilo específico para el ToolBar con ID "mainToolbar" */
 #mainToolbar {
-   /* -fx-background-color: #2c3e50;
+    -fx-background-color: #2c3e50;
     -fx-border-color: #1abc9c;
-    -fx-border-width: 0 0 3px 0;*/
+    -fx-border-width: 0 0 3px 0;
 }
 
 /* Estilo para los botones dentro del ToolBar */
 .tool-bar .toolbar-button {
-    /*-fx-background-color: #3498db;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 2px;*/
+   -fx-background-color: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+       /*-fx-padding: 2px;
+       -fx-spacing: 2px;*/
+       -fx-border-color: #999;
+       -fx-border-width: 0 0 1px 0;
 }
 
 .tool-bar .toolbar-button:hover {
-   /* -fx-background-color: #2980b9;*/
+    -fx-background-color: #2980b9;
 }
 
 /* Barra de estado */

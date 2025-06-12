@@ -33,4 +33,13 @@ public class Helper {
         mensaje.setContentText(pMensaje);
         mensaje.showAndWait();
     }
+
+
+    public static void errorCritico(String pMensaje){
+        Alert mensaje = new Alert(Alert.AlertType.ERROR);
+        mensaje.setTitle("Error de aplicación");
+        mensaje.setHeaderText("Ocurrio un error grave");
+        mensaje.setContentText(pMensaje);
+        mensaje.showAndWait();
+    }
 }

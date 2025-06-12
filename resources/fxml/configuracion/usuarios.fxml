@@ -24,6 +24,7 @@
                 <Insets bottom="10" left="20" right="20" top="20" />
             </padding>
             <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontAwesomeIcon glyphName="USER" size="20" />
                 <Label styleClass="section-title" text="Gestión de Usuarios">
                     <font>
                         <Font size="12.0" />

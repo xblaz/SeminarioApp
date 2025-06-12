@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaAmericano extends EsquemaFinanciacion {
-    public SistemaAmericano(String descripcion, Double tasaInteres, Integer cantidadCuotas, Boolean requiereGarante, EstadoEsquema estado) {
-        super(descripcion, tasaInteres, cantidadCuotas, requiereGarante, estado);
+    public SistemaAmericano(Long idEsquema, String descripcion, Double tasaInteres, Integer cantidadCuotas, Boolean requiereGarante, LocalDate fechaCreacion, EstadoEsquema estado, TipoEsquema tipoEsquema) {
+        super(idEsquema, descripcion, tasaInteres, cantidadCuotas, requiereGarante, fechaCreacion, estado, tipoEsquema);
+    }
+    public SistemaAmericano() {
+        this.setTipoEsquema(TipoEsquema.AMERICANO);
     }
 
     @Override

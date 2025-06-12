@@ -2,7 +2,8 @@ package ar.edu.ues21.seminario.view;
 
 public enum Views {
     USUARIO_ABM("Usuarios", "configuracion/usuarios.fxml"),
-    CONFIGURACION("Configuracion", "configuracion/configuracion.fxml"),
+    CONFIGURACION("Configuración", "configuracion/configuracion.fxml"),
+    ESQUEMA_FINANCIACION_ABM("Esquemas financiación", "configuracion/esquema_financiacion.fxml"),
     PRINCIPAL("Principal", "principal.fxml");
 
     private final String titulo;

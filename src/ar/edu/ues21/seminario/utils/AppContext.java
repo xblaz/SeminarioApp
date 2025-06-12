@@ -1,7 +1,9 @@
 package ar.edu.ues21.seminario.utils;
 
+import ar.edu.ues21.seminario.repository.aplicacion.EsquemaFinanciacionRepository;
 import ar.edu.ues21.seminario.repository.seguridad.RolRepository;
 import ar.edu.ues21.seminario.repository.seguridad.UsuarioRepository;
+import ar.edu.ues21.seminario.service.ConfiguracionService;
 import ar.edu.ues21.seminario.service.UsuarioService;
 
 import java.io.BufferedReader;
@@ -17,6 +19,7 @@ public class AppContext {
 
     private static Connection conn;
     private static UsuarioService usuarioService;
+    private static ConfiguracionService configuracionService;
 
     public static void init() {
         DatabaseConexion conexion = new DatabaseConexion();
@@ -24,8 +27,11 @@ public class AppContext {
         // Inicializa repositorios
         UsuarioRepository usuarioRepo = new UsuarioRepository(conn);
         RolRepository rolRepo = new RolRepository(conn);
+        EsquemaFinanciacionRepository repoEsquemaFinanciamiento = new EsquemaFinanciacionRepository(conn);
+
         // Inicializa services, inyecta su repositorio por parámetros
         usuarioService = new UsuarioService(usuarioRepo, rolRepo);
+        configuracionService = new ConfiguracionService(repoEsquemaFinanciamiento);
     }
     public static Connection getConexion() {
         return conn;
@@ -33,6 +39,8 @@ public class AppContext {
     public static UsuarioService getUsuarioService() {
         return usuarioService;
     }
+    public static ConfiguracionService getConfiguracionService() { return configuracionService; }
+
     public static String getEnvironment() {
         // Detectar entorno de desarrollo
         String env = System.getProperty("app.environment");

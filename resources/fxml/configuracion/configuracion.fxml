@@ -10,7 +10,7 @@
    <top>
       <ToolBar fx:id="mainToolbar" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-            <MenuButton mnemonicParsing="false" styleClass="toolbar-button" text="Seguridad">
+            <MenuButton mnemonicParsing="false" styleClass="toolbar-button"  text="Seguridad">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#mostrarAbmUsuario" text="Gestión de Usuarios">
                      <graphic>
@@ -25,7 +25,11 @@
             </MenuButton>
             <MenuButton mnemonicParsing="false" text="Parámetros">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Esquemas de financiación" onAction="#mostrarAbmEsquemaFinanciacion" >
+                  <graphic>
+                      <FontAwesomeIcon glyphName="CHAIN" />
+                  </graphic>
+                </MenuItem>
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
                <graphic>

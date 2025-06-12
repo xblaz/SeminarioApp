@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ar.edu.ues21.seminario.controller.EsquemaFinanciacionController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="20" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontAwesomeIcon glyphName="CHAIN" size="20" />
+                <Label styleClass="section-title" text="Esquemas de financiación">
+                    <font>
+                        <Font size="12.0" />
+                    </font></Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#agregarNuevoParametro" styleClass="action-button, primary-button" text="Definir nuevo esquema">
+                    <graphic>
+                        <FontAwesomeIcon glyphName="PLUS" size="12" />
+                    </graphic>
+                </Button>
+            </HBox>
+            <Separator />
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="0" />
+            </padding>
+            <!-- Tabla de usuarios -->
+            <VBox fx:id="tableContainer" spacing="10" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </center>
+</BorderPane>
